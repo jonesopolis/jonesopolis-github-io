@@ -1,0 +1,22 @@
+name: Auto-tag Claude on Issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  tag-claude:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Comment and tag Claude
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '@claude Please look at this issue.  If asking for a direct code change, make the code change and automatically create a PR.  Otherwise, answer the questions'
+            })
