@@ -6,6 +6,7 @@ import PostDetail from './components/PostDetail';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ErrorPage from './components/ErrorPage';
 import SEO from './components/SEO';
 import './styles/main.css';
 
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/post/:slug" element={<PostDetail />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );
