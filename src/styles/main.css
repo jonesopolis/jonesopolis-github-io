@@ -1117,6 +1117,7 @@ footer p {
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
+        z-index: 150;
     }
 
     .nav--open {
@@ -1269,7 +1270,7 @@ html.theme-transitioning::before {
 /* Resume Hero */
 .resume-hero {
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-    padding: 60px 20px 50px;
+    padding: 40px 20px 36px;
     margin-bottom: 40px;
     border-bottom: 1px solid var(--border);
 }
@@ -1283,14 +1284,14 @@ html.theme-transitioning::before {
 .resume-name {
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     letter-spacing: -0.5px;
 }
 
 .resume-title {
     font-size: 1.1rem;
     color: var(--text-secondary);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     font-weight: 400;
 }
 
@@ -1298,8 +1299,8 @@ html.theme-transitioning::before {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 16px 24px;
-    margin-bottom: 28px;
+    gap: 12px 20px;
+    margin-bottom: 24px;
 }
 
 .resume-contact-item {
@@ -1625,51 +1626,92 @@ html.dark-mode .resume-job:hover {
 /* Responsive */
 @media (max-width: 768px) {
     .resume-hero {
-        padding: 40px 16px 36px;
+        padding: 28px 16px 24px;
     }
 
     .resume-name {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        margin-bottom: 4px;
     }
 
     .resume-title {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        margin-bottom: 16px;
     }
 
     .resume-contact-grid {
-        gap: 12px 16px;
+        gap: 8px 12px;
     }
 
     .resume-contact-item {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+    }
+
+    .resume-download-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
     }
 
     .resume-summary {
-        padding: 20px 24px;
+        padding: 16px 20px;
+        margin-bottom: 32px;
+    }
+
+    .resume-summary p {
+        font-size: 0.9rem;
+    }
+
+    .resume-section {
+        margin-bottom: 32px;
     }
 
     .resume-section-title {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        margin-bottom: 16px;
+        padding-bottom: 10px;
+    }
+
+    .resume-section-icon {
+        width: 32px;
+        height: 32px;
     }
 
     .resume-job {
-        padding: 20px;
+        padding: 16px;
+        margin-bottom: 16px;
     }
 
     .resume-job-header {
         flex-direction: column;
+        margin-bottom: 12px;
     }
 
     .resume-job-meta {
         text-align: left;
     }
 
+    .resume-achievement-item {
+        padding: 12px 16px;
+    }
+
     .resume-skills-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .resume-skill-category {
+        padding: 16px;
     }
 
     .resume-two-column {
         grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    .resume-cta-section {
+        padding: 32px 16px;
+        margin-top: 24px;
     }
 }
 
