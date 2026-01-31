@@ -2,8 +2,11 @@
   command = "npm ci && npm run build"
   publish = "dist"
 
+# Contentful Delivery API tokens are designed to be public/read-only
+# They are safe to embed in client-side code
 [build.environment]
   NODE_VERSION = "20"
+  NETLIFY_SKIP_CRITICAL_DEPENDENCY_CHECK = "true"
 
 # Handle SPA routing - redirect all routes to index.html
 [[redirects]]

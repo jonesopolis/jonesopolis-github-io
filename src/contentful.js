@@ -28,6 +28,7 @@ const mockPosts = [
     publishDate: '2024-12-15',
     tags: [{ name: 'AI', slug: 'ai' }, { name: 'LLMs', slug: 'llms' }],
     mainImage: null,
+    thumbnailImage: null,
   },
   {
     slug: 'building-with-ai-agents',
@@ -45,6 +46,7 @@ const mockPosts = [
     publishDate: '2024-12-08',
     tags: [{ name: 'AI', slug: 'ai' }, { name: 'Agents', slug: 'agents' }],
     mainImage: null,
+    thumbnailImage: null,
   },
   {
     slug: 'prompt-engineering-basics',
@@ -62,6 +64,7 @@ const mockPosts = [
     publishDate: '2024-11-30',
     tags: [{ name: 'AI', slug: 'ai' }, { name: 'Prompts', slug: 'prompts' }],
     mainImage: null,
+    thumbnailImage: null,
   },
   {
     slug: 'rag-explained',
@@ -79,6 +82,7 @@ const mockPosts = [
     publishDate: '2024-11-20',
     tags: [{ name: 'AI', slug: 'ai' }, { name: 'RAG', slug: 'rag' }],
     mainImage: null,
+    thumbnailImage: null,
   },
 ];
 
@@ -163,6 +167,7 @@ export async function getPosts() {
     publishDate: item.fields.publishDate,
     tags: extractTags(item.fields.tags, entries.includes),
     mainImage: getImageUrl(item.fields.mainImage),
+    thumbnailImage: getImageUrl(item.fields.thumbnailImage),
     metaTitle: item.fields.metaTitle,
     metaDescription: item.fields.metaDescription,
   }));
@@ -191,6 +196,7 @@ export async function getPostBySlug(slug) {
     publishDate: item.publishDate,
     tags: extractTags(item.tags, entries.includes),
     mainImage: getImageUrl(item.mainImage),
+    thumbnailImage: getImageUrl(item.thumbnailImage),
     metaTitle: item.metaTitle,
     metaDescription: item.metaDescription,
   };
@@ -210,6 +216,127 @@ export async function getFooter() {
   return {
     copyright: item.copyright,
     tagline: item.tagline,
+  };
+}
+
+// Mock data for site settings
+const mockSiteSettings = {
+  logoText: '// learning.ai',
+  heroBadgeText: 'Currently exploring AI',
+  backToPostsText: 'Back to posts',
+  backToHomeText: '← Back to home',
+  notFoundTitle: 'Post not found',
+  notFoundMessage: "The post you're looking for doesn't exist.",
+  loadingText: 'Loading posts...',
+  defaultSiteTitle: "Learning AI | A Developer's Journey",
+  defaultSiteDescription: 'A blog about learning AI, machine learning, and the journey of a developer exploring artificial intelligence.',
+  contactEmail: 'hello@example.com',
+  githubUrl: 'https://github.com',
+  linkedinUrl: 'https://linkedin.com',
+  twitterUrl: 'https://twitter.com',
+};
+
+const mockResumePage = {
+  fullName: 'David Rector',
+  location: 'Castle Rock, Colorado',
+  phone: '859-396-5280',
+  email: 'davidarector@gmail.com',
+  linkedinUrl: 'https://linkedin.com/in/davidrector',
+  portfolioUrl: 'https://codeinspace.io',
+  professionalSummary: 'Software Architect and Technical Leader with 14+ years architecting enterprise-scale .NET solutions in Azure cloud environments.',
+  keyAchievements: 'Led $1.9M project portfolio (2023)\n4x Microsoft Certified Developer\nArchitected solutions serving 500K+ concurrent users',
+  experience: '[]',
+  technicalSkills: '[]',
+  education: 'University of Kentucky | Bachelor of Science in Computer Science | Graduated May 2012',
+  certifications: 'Microsoft Certified Developer – C#\nMicrosoft Certified Developer – Azure',
+  pdfUrl: '/ATS_Resume.pdf',
+  seoTitle: 'David Rector | Software Architect',
+  seoDescription: 'Software Architect with 14+ years building enterprise .NET solutions in Azure.',
+};
+
+const mockContactPage = {
+  pageTitle: 'Contact',
+  pageSubtitle: "Let's connect",
+  seoTitle: 'Contact | Learning AI',
+  seoDescription: 'Get in touch to discuss AI, development, or collaboration opportunities.',
+  introText: "I'm always interested in discussing AI, machine learning, and software development. Whether you have a question, want to collaborate, or just want to say hi - feel free to reach out.",
+};
+
+export async function getSiteSettings() {
+  if (isDemo) return mockSiteSettings;
+
+  const entries = await client.getEntries({
+    content_type: 'siteSettings',
+    limit: 1,
+  });
+
+  if (entries.items.length === 0) return mockSiteSettings;
+
+  const item = entries.items[0].fields;
+  return {
+    logoText: item.logoText || mockSiteSettings.logoText,
+    heroBadgeText: item.heroBadgeText || mockSiteSettings.heroBadgeText,
+    backToPostsText: item.backToPostsText || mockSiteSettings.backToPostsText,
+    backToHomeText: item.backToHomeText || mockSiteSettings.backToHomeText,
+    notFoundTitle: item.notFoundTitle || mockSiteSettings.notFoundTitle,
+    notFoundMessage: item.notFoundMessage || mockSiteSettings.notFoundMessage,
+    loadingText: item.loadingText || mockSiteSettings.loadingText,
+    defaultSiteTitle: item.defaultSiteTitle || mockSiteSettings.defaultSiteTitle,
+    defaultSiteDescription: item.defaultSiteDescription || mockSiteSettings.defaultSiteDescription,
+    contactEmail: item.contactEmail || mockSiteSettings.contactEmail,
+    githubUrl: item.githubUrl || mockSiteSettings.githubUrl,
+    linkedinUrl: item.linkedinUrl || mockSiteSettings.linkedinUrl,
+    twitterUrl: item.twitterUrl || mockSiteSettings.twitterUrl,
+  };
+}
+
+export async function getResumePage() {
+  if (isDemo) return mockResumePage;
+
+  const entries = await client.getEntries({
+    content_type: 'resumePage',
+    limit: 1,
+  });
+
+  if (entries.items.length === 0) return mockResumePage;
+
+  const item = entries.items[0].fields;
+  return {
+    fullName: item.fullName || mockResumePage.fullName,
+    location: item.location || mockResumePage.location,
+    phone: item.phone || mockResumePage.phone,
+    email: item.email || mockResumePage.email,
+    linkedinUrl: item.linkedinUrl || mockResumePage.linkedinUrl,
+    portfolioUrl: item.portfolioUrl || mockResumePage.portfolioUrl,
+    professionalSummary: item.professionalSummary || mockResumePage.professionalSummary,
+    keyAchievements: item.keyAchievements || mockResumePage.keyAchievements,
+    experience: item.experience || mockResumePage.experience,
+    technicalSkills: item.technicalSkills || mockResumePage.technicalSkills,
+    education: item.education || mockResumePage.education,
+    certifications: item.certifications || mockResumePage.certifications,
+    pdfUrl: item.pdfUrl || mockResumePage.pdfUrl,
+    seoTitle: item.seoTitle || mockResumePage.seoTitle,
+    seoDescription: item.seoDescription || mockResumePage.seoDescription,
+  };
+}
+
+export async function getContactPage() {
+  if (isDemo) return mockContactPage;
+
+  const entries = await client.getEntries({
+    content_type: 'contactPage',
+    limit: 1,
+  });
+
+  if (entries.items.length === 0) return mockContactPage;
+
+  const item = entries.items[0].fields;
+  return {
+    pageTitle: item.pageTitle || mockContactPage.pageTitle,
+    pageSubtitle: item.pageSubtitle || mockContactPage.pageSubtitle,
+    seoTitle: item.seoTitle || mockContactPage.seoTitle,
+    seoDescription: item.seoDescription || mockContactPage.seoDescription,
+    introText: item.introText || mockContactPage.introText,
   };
 }
 
@@ -246,6 +373,7 @@ export async function getRelatedPosts(currentSlug, tags, limit = 2) {
         publishDate: item.fields.publishDate,
         tags: postTags,
         mainImage: getImageUrl(item.fields.mainImage),
+        thumbnailImage: getImageUrl(item.fields.thumbnailImage),
         commonTagCount: commonTags.length,
       };
     })

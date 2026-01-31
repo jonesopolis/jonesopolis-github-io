@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { getPostBySlug } from '../contentful';
+import { getPostBySlug, getSiteSettings } from '../contentful';
 import { getPostIcon } from './PostIcons';
 import SEO from './SEO';
 import Footer from './Footer';
@@ -15,13 +15,22 @@ function formatDate(dateString) {
 export default function PostDetail() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
+  const [settings, setSettings] = useState({
+    backToPostsText: 'Back to posts',
+    backToHomeText: '← Back to home',
+    notFoundTitle: 'Post not found',
+    notFoundMessage: "The post you're looking for doesn't exist.",
+  });
   const [loading, setLoading] = useState(true);
   const [showStickyTitle, setShowStickyTitle] = useState(false);
   const titleRef = useRef(null);
 
   useEffect(() => {
-    getPostBySlug(slug)
-      .then(setPost)
+    Promise.all([getPostBySlug(slug), getSiteSettings()])
+      .then(([postData, settingsData]) => {
+        setPost(postData);
+        setSettings(settingsData);
+      })
       .finally(() => setLoading(false));
   }, [slug]);
 
@@ -59,9 +68,9 @@ export default function PostDetail() {
     return (
       <div className="container">
         <section className="page-section">
-          <h1 className="page-title">Post not found</h1>
-          <p>The post you're looking for doesn't exist.</p>
-          <Link to="/" className="btn">← Back to home</Link>
+          <h1 className="page-title">{settings.notFoundTitle}</h1>
+          <p>{settings.notFoundMessage}</p>
+          <Link to="/" className="btn">{settings.backToHomeText}</Link>
         </section>
       </div>
     );
@@ -106,17 +115,28 @@ export default function PostDetail() {
               <line x1="19" y1="12" x2="5" y2="12"/>
               <polyline points="12 19 5 12 12 5"/>
             </svg>
-            Back to posts
+            {settings.backToPostsText}
           </Link>
 
-          {(() => {
-            const PostIcon = getPostIcon(post.slug);
-            return (
-              <div className="post-detail-icon">
-                <PostIcon />
-              </div>
-            );
-          })()}
+          {post.mainImage ? (
+            <div className="post-detail-image">
+              <div
+                className="post-main-image"
+                style={{ '--main-image-url': `url(${post.mainImage})` }}
+                role="img"
+                aria-label={post.title}
+              />
+            </div>
+          ) : (
+            (() => {
+              const PostIcon = getPostIcon(post.slug);
+              return (
+                <div className="post-detail-icon">
+                  <PostIcon />
+                </div>
+              );
+            })()
+          )}
 
           <header className="post-detail-header">
             <h1 ref={titleRef}>{post.title}</h1>

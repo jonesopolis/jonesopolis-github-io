@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { getSiteSettings } from '../contentful';
 
 function SunIcon() {
   return (
@@ -31,7 +32,12 @@ export default function Header() {
   });
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [settings, setSettings] = useState({ logoText: '// learning.ai' });
   const location = useLocation();
+
+  useEffect(() => {
+    getSiteSettings().then(setSettings);
+  }, []);
 
   useEffect(() => {
     // Set direction class BEFORE starting animation (determines overlay color)
@@ -89,7 +95,7 @@ export default function Header() {
     <header className={scrolled ? 'header--scrolled' : ''}>
       <div className="header-content">
         <div className="logo">
-          <Link to="/">// learning.ai</Link>
+          <Link to="/">{settings.logoText}</Link>
         </div>
 
         <nav className={`nav ${menuOpen ? 'nav--open' : ''}`}>

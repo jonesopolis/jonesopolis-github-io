@@ -8,11 +8,21 @@ function formatDate(dateString) {
 
 export default function PostCard({ post }) {
   const PostIcon = getPostIcon(post.slug);
+  const hasThumbnail = post.thumbnailImage;
 
   return (
     <Link to={`/post/${post.slug}`} className="post-card">
       <div className="post-image">
-        <PostIcon />
+        {hasThumbnail ? (
+          <div
+            className="post-thumbnail"
+            style={{ '--thumbnail-url': `url(${post.thumbnailImage})` }}
+            role="img"
+            aria-label={post.title}
+          />
+        ) : (
+          <PostIcon />
+        )}
       </div>
       <div className="post-body">
         <div className="post-header">

@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
-import { getHero } from '../contentful';
+import { getHero, getSiteSettings } from '../contentful';
 
 export default function Hero() {
   const [hero, setHero] = useState({ title: '', subtitle: '' });
+  const [settings, setSettings] = useState({ heroBadgeText: 'Currently exploring AI' });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getHero()
-      .then(setHero)
+    Promise.all([getHero(), getSiteSettings()])
+      .then(([heroData, settingsData]) => {
+        setHero(heroData);
+        setSettings(settingsData);
+      })
       .finally(() => setLoading(false));
   }, []);
 
@@ -27,7 +31,7 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-badge">
           <span className="hero-badge-dot"></span>
-          Currently exploring AI
+          {settings.heroBadgeText}
         </div>
         <h1>{hero.title}</h1>
         <p>{hero.subtitle}</p>

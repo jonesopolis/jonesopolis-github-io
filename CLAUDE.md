@@ -80,6 +80,45 @@ Without credentials, the app uses mock data for development.
 - `copyright` (Short text)
 - `tagline` (Short text)
 
+### siteSettings
+- `logoText` (Short text, required) - Header logo text
+- `heroBadgeText` (Short text) - Badge text in hero section
+- `backToPostsText` (Short text) - "Back to posts" link text
+- `backToHomeText` (Short text) - "Back to home" button text
+- `notFoundTitle` (Short text) - 404 page title
+- `notFoundMessage` (Long text) - 404 page message
+- `loadingText` (Short text) - Loading state text
+- `defaultSiteTitle` (Short text, max 60) - Default SEO title
+- `defaultSiteDescription` (Long text, max 160) - Default SEO description
+- `contactEmail` (Short text) - Contact email address
+- `githubUrl` (Short text) - GitHub profile URL
+- `linkedinUrl` (Short text) - LinkedIn profile URL
+- `twitterUrl` (Short text) - Twitter profile URL
+
+### resumePage
+- `fullName` (Short text, required) - Full name displayed in header
+- `location` (Short text) - City, State
+- `phone` (Short text) - Phone number
+- `email` (Short text) - Email address
+- `linkedinUrl` (Short text) - LinkedIn profile URL
+- `portfolioUrl` (Short text) - Portfolio website URL
+- `professionalSummary` (Long text) - Summary paragraph
+- `keyAchievements` (Long text) - Newline-separated achievements
+- `experience` (Long text) - JSON array of job objects
+- `technicalSkills` (Long text) - JSON array of skill category objects
+- `education` (Long text) - Education details
+- `certifications` (Long text) - Newline-separated certifications
+- `pdfUrl` (Short text) - URL to downloadable PDF resume
+- `seoTitle` (Short text, max 60) - SEO title
+- `seoDescription` (Short text, max 160) - SEO description
+
+### contactPage
+- `pageTitle` (Short text, required) - Page heading
+- `pageSubtitle` (Short text) - Page subtitle
+- `seoTitle` (Short text, max 60) - SEO title
+- `seoDescription` (Short text, max 160) - SEO description
+- `introText` (Long text) - Introduction paragraph
+
 ## Routes
 
 - `/` - Home (hero + post list)

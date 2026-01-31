@@ -1,21 +1,25 @@
 import { useEffect, useState } from 'react';
-import { getPosts } from '../contentful';
+import { getPosts, getSiteSettings } from '../contentful';
 import PostCard from './PostCard';
 
 export default function PostList() {
   const [posts, setPosts] = useState([]);
+  const [settings, setSettings] = useState({ loadingText: 'Loading posts...' });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getPosts()
-      .then(setPosts)
+    Promise.all([getPosts(), getSiteSettings()])
+      .then(([postsData, settingsData]) => {
+        setPosts(postsData);
+        setSettings(settingsData);
+      })
       .finally(() => setLoading(false));
   }, []);
 
   if (loading) {
     return (
       <section className="posts">
-        <p>Loading posts...</p>
+        <p>{settings.loadingText}</p>
       </section>
     );
   }
