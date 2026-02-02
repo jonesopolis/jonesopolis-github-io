@@ -1465,11 +1465,14 @@ a.resume-contact-item:hover {
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--text-primary);
+    display: block;
 }
 
 .resume-job-location {
     font-size: 0.7rem;
     color: var(--text-secondary);
+    display: block;
+    margin-top: 2px;
 }
 
 .resume-job-bullets {
