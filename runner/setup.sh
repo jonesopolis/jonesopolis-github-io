@@ -91,11 +91,11 @@ WORK_DIR="/tmp/github-runner-work"
 mkdir -p "$WORK_DIR"
 
 ./config.sh \
-    --url https://github.com/jonesopolis/jonesopolis.github.io \
-    --token "$TOKEN" \
-    --name "$RUNNER_NAME" \
-    --labels "self-hosted,$OS,$ARCH" \
-    --work "$WORK_DIR" \
+    --url "https://github.com/jonesopolis/jonesopolis.github.io" \
+    --token "${TOKEN}" \
+    --name "${RUNNER_NAME}" \
+    --labels "self-hosted,${OS},${ARCH}" \
+    --work "${WORK_DIR}" \
     --unattended
 
 echo ""
