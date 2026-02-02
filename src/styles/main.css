@@ -492,7 +492,6 @@ header.header--scrolled {
     opacity: 0;
     visibility: hidden;
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
-    padding-top: 8px;
 }
 
 .sticky-title-bar::after {
@@ -515,7 +514,7 @@ header.header--scrolled {
 .sticky-title-content {
     max-width: 900px;
     margin: 0 auto;
-    padding: 12px 24px;
+    padding: 6px 24px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -527,7 +526,7 @@ header.header--scrolled {
     justify-content: center;
     color: var(--text-secondary);
     text-decoration: none;
-    padding: 4px;
+    padding: 2px;
     flex-shrink: 0;
     transition: color 0.2s ease;
 }
@@ -1079,7 +1078,7 @@ footer p {
     }
 
     .sticky-title-content {
-        padding: 12px 16px;
+        padding: 6px 16px;
         gap: 10px;
     }
 
@@ -1104,8 +1103,8 @@ footer p {
     .sticky-back-btn {
         background-color: var(--bg-secondary);
         border: 1px solid var(--border);
-        border-radius: 6px;
-        padding: 8px;
+        border-radius: 4px;
+        padding: 4px;
         margin-top: 0;
     }
 
