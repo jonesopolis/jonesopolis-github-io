@@ -11,7 +11,6 @@ export default function Footer() {
   return (
     <footer>
       <p>{footer.copyright}</p>
-      <p>{footer.tagline}</p>
     </footer>
   );
 }

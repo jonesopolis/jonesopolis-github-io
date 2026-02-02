@@ -1028,18 +1028,18 @@ html.theme-transitioning .post-detail-header * {
 /* ==================== FOOTER ==================== */
 footer {
     margin-top: 40px;
-    padding: 32px 0;
+    padding: 16px 0;
     border-top: 1px solid var(--border);
     text-align: center;
     color: var(--text-secondary);
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.5px;
     animation: fadeInUp 0.6s ease 0.4s both;
     text-transform: lowercase;
 }
 
 footer p {
-    margin: 6px 0;
+    margin: 0;
 }
 
 /* ==================== LOADING SKELETON ==================== */
@@ -1297,17 +1297,18 @@ html.theme-transitioning::before {
     padding-bottom: 40px;
 }
 
-/* Resume Header */
+/* Resume Header - Inverted */
 .resume-header-section {
-    border-bottom: 1px solid var(--border);
-    padding: 24px 0 20px;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 20px 0;
     margin-bottom: 24px;
 }
 
 .resume-header-content {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .resume-header-main {
@@ -1323,11 +1324,13 @@ html.theme-transitioning::before {
     letter-spacing: -0.3px;
     text-transform: lowercase;
     margin: 0;
+    color: var(--bg-primary);
 }
 
 .resume-title {
     font-size: 0.85rem;
-    color: var(--text-secondary);
+    color: var(--bg-primary);
+    opacity: 0.7;
     font-weight: 400;
     text-transform: lowercase;
     margin: 0;
@@ -1344,34 +1347,35 @@ html.theme-transitioning::before {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    color: var(--text-secondary);
+    color: var(--bg-primary);
+    opacity: 0.7;
     text-decoration: none;
     font-size: 0.75rem;
-    transition: color 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 a.resume-contact-item:hover {
-    color: var(--text-primary);
+    opacity: 1;
 }
 
 .resume-contact-item svg {
     flex-shrink: 0;
-    opacity: 0.6;
 }
 
 .resume-download-link {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    color: var(--accent);
+    color: var(--bg-primary);
     text-decoration: none;
     font-size: 0.75rem;
     font-weight: 500;
+    opacity: 0.9;
     transition: opacity 0.2s ease;
 }
 
 .resume-download-link:hover {
-    opacity: 0.7;
+    opacity: 1;
 }
 
 /* Resume Sections */
@@ -1394,8 +1398,8 @@ a.resume-contact-item:hover {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--text-secondary);
-    margin-bottom: 12px;
-    padding-bottom: 6px;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
     border-bottom: 1px solid var(--border);
 }
 
@@ -1454,6 +1458,7 @@ a.resume-contact-item:hover {
 .resume-job-meta {
     text-align: right;
     flex-shrink: 0;
+    padding-left: 24px;
 }
 
 .resume-job-dates {
@@ -1497,21 +1502,25 @@ a.resume-contact-item:hover {
 .resume-skills {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 }
 
 .resume-skill-row {
     font-size: 0.8rem;
-    line-height: 1.5;
+    line-height: 1.6;
+    display: flex;
+    gap: 8px;
 }
 
 .resume-skill-category {
     font-weight: 600;
     color: var(--text-primary);
+    flex-shrink: 0;
 }
 
 .resume-skill-items {
-    color: var(--text-secondary);
+    color: var(--text-primary);
+    opacity: 0.8;
 }
 
 /* Footer section */
