@@ -31,7 +31,7 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-badge">
           <span className="hero-badge-dot"></span>
-          {settings.heroBadgeText}
+          {settings.heroBadgeText}<span className="hero-badge-ellipsis"></span>
         </div>
         <h1>{hero.title}<span className="hero-cursor"></span></h1>
         <p>{hero.subtitle}</p>
