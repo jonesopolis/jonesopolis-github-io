@@ -1,248 +1,213 @@
-async function fetchContentful(type, params = {}) {
-  const searchParams = new URLSearchParams({ type, ...params });
-  const response = await fetch(`/api/contentful?${searchParams.toString()}`);
+// Contentful Delivery API - direct client-side calls
+const SPACE_ID = import.meta.env.VITE_CONTENTFUL_SPACE_ID;
+const ACCESS_TOKEN = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN;
+const BASE_URL = `https://cdn.contentful.com/spaces/${SPACE_ID}/environments/master`;
+
+async function fetchContentful(endpoint) {
+  const url = `${BASE_URL}${endpoint}`;
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${ACCESS_TOKEN}`,
+    },
+  });
 
   if (!response.ok) {
-    throw new Error(`Contentful request failed with status ${response.status}`);
+    throw new Error(`Contentful request failed: ${response.status}`);
   }
 
-  const payload = await response.json();
-  return payload.data;
+  return response.json();
+}
+
+// Helper to resolve linked assets and entries
+function resolveLinks(items, includes = {}) {
+  const assets = {};
+  const entries = {};
+
+  (includes.Asset || []).forEach((asset) => {
+    assets[asset.sys.id] = asset;
+  });
+
+  (includes.Entry || []).forEach((entry) => {
+    entries[entry.sys.id] = entry;
+  });
+
+  return items.map((item) => resolveItem(item, assets, entries));
+}
+
+function resolveItem(item, assets, entries) {
+  const resolved = { ...item.fields };
+
+  // Resolve linked assets (images)
+  Object.keys(resolved).forEach((key) => {
+    const value = resolved[key];
+    if (value?.sys?.type === 'Link' && value.sys.linkType === 'Asset') {
+      const asset = assets[value.sys.id];
+      resolved[key] = asset ? `https:${asset.fields.file.url}` : null;
+    }
+    // Resolve linked entries (like tags)
+    if (Array.isArray(value)) {
+      resolved[key] = value.map((v) => {
+        if (v?.sys?.type === 'Link' && v.sys.linkType === 'Entry') {
+          const entry = entries[v.sys.id];
+          return entry ? entry.fields : v;
+        }
+        return v;
+      });
+    }
+  });
+
+  return resolved;
 }
 
 // Fallback data
-// hero.subtitle also serves as the default site SEO description
-const hero = {
+const heroFallback = {
   title: 'Welcome to Please Recompile',
   subtitle: "Software architecture is evolving. AI is making code cheaper and faster to write—the real value now is in vision, planning, and building systems that last. I'm here for it, join me as I recompile.",
 };
 
-const posts = [
+const postsFallback = [
   {
     slug: 'getting-started-with-llms',
     title: 'Getting Started with LLMs',
     excerpt: 'How LLMs actually work, explained in terms I wish someone had told me earlier.',
-    content: {
-      nodeType: 'document',
-      data: {},
-      content: [
-        {
-          nodeType: 'paragraph',
-          data: {},
-          content: [{ nodeType: 'text', value: 'Large Language Models have revolutionized how we think about AI. In this post, I share my journey from skeptic to enthusiast, and the key concepts that helped me understand these powerful tools.', marks: [], data: {} }],
-        },
-      ],
-    },
+    content: { nodeType: 'document', data: {}, content: [{ nodeType: 'paragraph', data: {}, content: [{ nodeType: 'text', value: 'Large Language Models have revolutionized how we think about AI.', marks: [], data: {} }] }] },
     publishDate: '2024-12-15',
-    tags: [{ name: 'AI', slug: 'ai' }, { name: 'LLMs', slug: 'llms' }],
+    tags: [{ name: 'AI', slug: 'ai' }],
     mainImage: null,
-    thumbnailImage: null,
-  },
-  {
-    slug: 'building-with-ai-agents',
-    title: 'Building with AI Agents',
-    excerpt: 'From concept to working prototype, and the mistakes I made along the way.',
-    content: {
-      nodeType: 'document',
-      data: {},
-      content: [
-        {
-          nodeType: 'paragraph',
-          data: {},
-          content: [{ nodeType: 'text', value: 'AI agents represent the next frontier in automation. Learn how I built my first agent and the lessons learned from the process.', marks: [], data: {} }],
-        },
-      ],
-    },
-    publishDate: '2024-12-08',
-    tags: [{ name: 'AI', slug: 'ai' }, { name: 'Agents', slug: 'agents' }],
-    mainImage: null,
-    thumbnailImage: null,
-  },
-  {
-    slug: 'prompt-engineering-basics',
-    title: 'Prompt Engineering Basics',
-    excerpt: 'What I\'ve learned about crafting prompts that consistently get great results.',
-    content: {
-      nodeType: 'document',
-      data: {},
-      content: [
-        {
-          nodeType: 'paragraph',
-          data: {},
-          content: [{ nodeType: 'text', value: 'Good prompts are the key to getting great results from AI. Here\'s what I\'ve learned about writing prompts that work.', marks: [], data: {} }],
-        },
-      ],
-    },
-    publishDate: '2024-11-30',
-    tags: [{ name: 'AI', slug: 'ai' }, { name: 'Prompts', slug: 'prompts' }],
-    mainImage: null,
-    thumbnailImage: null,
-  },
-  {
-    slug: 'rag-explained',
-    title: 'RAG Explained Simply',
-    excerpt: 'How I implemented RAG to combine LLM power with my own documents.',
-    content: {
-      nodeType: 'document',
-      data: {},
-      content: [
-        {
-          nodeType: 'paragraph',
-          data: {},
-          content: [{ nodeType: 'text', value: 'RAG combines the power of retrieval systems with generative AI. This post breaks down the concept in simple terms.', marks: [], data: {} }],
-        },
-      ],
-    },
-    publishDate: '2024-11-20',
-    tags: [{ name: 'AI', slug: 'ai' }, { name: 'RAG', slug: 'rag' }],
-    mainImage: null,
-    thumbnailImage: null,
   },
 ];
 
-const footer = {
+const footerFallback = {
   copyright: '© 2026 Please Recompile',
   tagline: 'rebuilding how I build',
 };
 
-export async function getHero() {
-  try {
-    const data = await fetchContentful('hero');
-    if (!data) return hero;
-    return data;
-  } catch (error) {
-    return hero;
-  }
-}
-
-export async function getPosts() {
-  try {
-    const data = await fetchContentful('posts');
-    return data || posts;
-  } catch (error) {
-    return posts;
-  }
-}
-
-export async function getPostBySlug(slug) {
-  try {
-    const data = await fetchContentful('postBySlug', { slug });
-    if (!data) return null;
-    return data;
-  } catch (error) {
-    return posts.find((p) => p.slug === slug) || null;
-  }
-}
-
-export async function getFooter() {
-  try {
-    const data = await fetchContentful('footer');
-    if (!data) return footer;
-    return data;
-  } catch (error) {
-    return footer;
-  }
-}
-
-// Site settings fallback
-const siteSettings = {
-  // Branding
+const siteSettingsFallback = {
   logoText: '// please recompile',
   heroBadgeText: 'Currently recompiling',
-
-  // Navigation
-  navBlogLabel: 'Blog',
-  navResumeLabel: 'Resume',
-  navContactLabel: 'Contact',
-
-  // Post navigation
   backToPostsText: 'Back',
   relatedPostsTitle: 'Related',
-
-  // 404 error page
   notFoundTitle: 'Page Not Found',
   notFoundMessage: "The page you're looking for doesn't exist.",
-
-  // 500 error page
-  errorTitle: 'Something Went Wrong',
-  errorMessage: "An error occurred! Try going back <a href='/'>home</a>.",
-  errorBackgroundText: 'oops',
-
-  // Loading states
   loadingText: 'Loading...',
-
-  // Social links
   contactEmail: 'davidarector@gmail.com',
   githubUrl: 'https://github.com/jonesopolis',
   linkedinUrl: 'https://linkedin.com/in/davidarector',
 };
 
-const resumePage = {
-  fullName: 'David Rector',
-  location: 'Castle Rock, Colorado',
-  phone: '859-396-5280',
-  email: 'davidarector@gmail.com',
-  linkedinUrl: 'https://linkedin.com/in/davidrector',
-  websiteUrl: 'https://jonesopolis.github.io',
-  professionalSummary: 'Software Architect and Technical Leader with 14+ years architecting enterprise-scale .NET solutions in Azure cloud environments.',
-  keyAchievements: 'Led $1.9M project portfolio (2023)\n4x Microsoft Certified Developer\nArchitected solutions serving 500K+ concurrent users',
-  experience: '[]',
-  technicalSkills: '[]',
-  education: 'University of Kentucky | Bachelor of Science in Computer Science | Graduated May 2012',
-  certifications: 'Microsoft Certified Developer – C#\nMicrosoft Certified Developer – Azure',
-  pdfUrl: '/ATS_Resume.pdf',
-  seoTitle: 'david rector | please recompile',
-  seoDescription: 'Software Architect with 14+ years building enterprise .NET solutions in Azure.',
-};
-
-const contactPage = {
+const contactPageFallback = {
   pageTitle: 'Contact',
   pageSubtitle: "Let's connect",
   seoTitle: 'contact | please recompile',
   introText: "Still recompiling. Happy to talk about it. Whether it's AI, architecture, or just swapping ideas—reach out.",
 };
 
-export async function getSiteSettings() {
+// API functions
+export async function getHero() {
   try {
-    const data = await fetchContentful('siteSettings');
-    return data || siteSettings;
+    const data = await fetchContentful('/entries?content_type=heroSection&limit=1');
+    if (data.items?.length > 0) {
+      const resolved = resolveLinks(data.items, data.includes);
+      return resolved[0];
+    }
+    return heroFallback;
   } catch (error) {
-    return siteSettings;
+    console.error('Error fetching hero:', error);
+    return heroFallback;
   }
 }
 
-export async function getResumePage() {
+export async function getPosts() {
   try {
-    const data = await fetchContentful('resumePage');
-    return data || resumePage;
+    const data = await fetchContentful('/entries?content_type=blogPost&order=-fields.publishDate&include=2');
+    if (data.items?.length > 0) {
+      return resolveLinks(data.items, data.includes);
+    }
+    return postsFallback;
   } catch (error) {
-    return resumePage;
+    console.error('Error fetching posts:', error);
+    return postsFallback;
+  }
+}
+
+export async function getPostBySlug(slug) {
+  try {
+    const data = await fetchContentful(`/entries?content_type=blogPost&fields.slug=${slug}&include=2`);
+    if (data.items?.length > 0) {
+      const resolved = resolveLinks(data.items, data.includes);
+      return resolved[0];
+    }
+    return null;
+  } catch (error) {
+    console.error('Error fetching post:', error);
+    return postsFallback.find((p) => p.slug === slug) || null;
+  }
+}
+
+export async function getFooter() {
+  try {
+    const data = await fetchContentful('/entries?content_type=footer&limit=1');
+    if (data.items?.length > 0) {
+      const resolved = resolveLinks(data.items, data.includes);
+      return resolved[0];
+    }
+    return footerFallback;
+  } catch (error) {
+    console.error('Error fetching footer:', error);
+    return footerFallback;
+  }
+}
+
+export async function getSiteSettings() {
+  try {
+    const data = await fetchContentful('/entries?content_type=siteSettings&limit=1');
+    if (data.items?.length > 0) {
+      const resolved = resolveLinks(data.items, data.includes);
+      return resolved[0];
+    }
+    return siteSettingsFallback;
+  } catch (error) {
+    console.error('Error fetching site settings:', error);
+    return siteSettingsFallback;
   }
 }
 
 export async function getContactPage() {
   try {
-    const data = await fetchContentful('contactPage');
-    return data || contactPage;
+    const data = await fetchContentful('/entries?content_type=contactPage&limit=1');
+    if (data.items?.length > 0) {
+      const resolved = resolveLinks(data.items, data.includes);
+      return resolved[0];
+    }
+    return contactPageFallback;
   } catch (error) {
-    return contactPage;
+    console.error('Error fetching contact page:', error);
+    return contactPageFallback;
   }
 }
 
 export async function getRelatedPosts(currentSlug, tags, limit = 2) {
   try {
-    const data = await fetchContentful('relatedPosts', {
-      currentSlug,
-      tags: JSON.stringify(tags),
-      limit: String(limit),
-    });
-    return data || [];
+    // Get posts that share tags with the current post
+    const tagSlugs = tags.map((t) => t.slug).join(',');
+    const data = await fetchContentful(`/entries?content_type=blogPost&fields.slug[ne]=${currentSlug}&include=2&limit=${limit + 5}`);
+
+    if (data.items?.length > 0) {
+      const resolved = resolveLinks(data.items, data.includes);
+      // Filter by matching tags and limit
+      const currentTagSlugs = tags.map((t) => t.slug);
+      return resolved
+        .filter((p) => p.tags?.some((t) => currentTagSlugs.includes(t.slug)))
+        .slice(0, limit);
+    }
+    return [];
   } catch (error) {
-    // Fallback for demo
-    const currentTagSlugs = tags.map((t) => t.slug);
-    return posts
-      .filter((p) => p.slug !== currentSlug)
-      .filter((p) => p.tags.some((t) => currentTagSlugs.includes(t.slug)))
-      .slice(0, limit);
+    console.error('Error fetching related posts:', error);
+    return [];
   }
+}
+
+// Resume page isn't in Contentful - it's hardcoded in Resume.jsx
+export async function getResumePage() {
+  return null;
 }
