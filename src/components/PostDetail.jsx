@@ -101,9 +101,9 @@ export default function PostDetail() {
   return (
     <>
       <SEO
-        title={post.metaTitle || `${post.title} | Please Recompile`}
-        description={post.metaDescription || post.excerpt}
-        image={post.mainImage}
+        title={`${post.title} | Please Recompile`}
+        description={post.hook}
+        image={post.image}
         type="article"
       />
 
@@ -140,9 +140,9 @@ export default function PostDetail() {
             {settings.backToPostsText}
           </Link>
 
-          {post.iconSvg ? (
+          {post.imageSvg ? (
             <div className="post-detail-icon">
-              <InlineSvg url={post.iconSvg} />
+              <InlineSvg url={post.imageSvg} />
             </div>
           ) : (
             (() => {

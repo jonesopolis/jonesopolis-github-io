@@ -69,11 +69,12 @@ const postsFallback = [
   {
     slug: 'getting-started-with-llms',
     title: 'Getting Started with LLMs',
-    excerpt: 'How LLMs actually work, explained in terms I wish someone had told me earlier.',
+    hook: 'How LLMs actually work, explained in terms I wish someone had told me earlier.',
     content: { nodeType: 'document', data: {}, content: [{ nodeType: 'paragraph', data: {}, content: [{ nodeType: 'text', value: 'Large Language Models have revolutionized how we think about AI.', marks: [], data: {} }] }] },
     publishDate: '2024-12-15',
     tags: [{ name: 'AI', slug: 'ai' }],
-    mainImage: null,
+    image: null,
+    imageSvg: null,
   },
 ];
 
