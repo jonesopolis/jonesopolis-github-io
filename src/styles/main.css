@@ -919,18 +919,15 @@ html.theme-transitioning .post-detail-header * {
     color: var(--accent);
 }
 
-/* Contact Styles - SPREAD VARIATIONS */
-/* All variations: icon slides left, text slides right on hover */
-
-/* Base styles for all spread variants */
-[class^="contact-links-v"] {
+/* Contact Styles */
+.contact-links {
     display: flex;
     flex-direction: column;
     gap: 8px;
     margin: 24px 0 40px;
 }
 
-[class^="contact-link-v"] {
+.contact-link {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -940,237 +937,57 @@ html.theme-transitioning .post-detail-header * {
     transition: all 0.25s ease;
 }
 
-[class^="contact-link-v"] .icon-wrap {
+.contact-link .icon-wrap {
     display: flex;
-    transition: transform 0.25s ease;
-}
-
-[class^="contact-link-v"] .text {
     transition: transform 0.25s ease, color 0.25s ease;
 }
 
-[class^="contact-link-v"]:hover .icon-wrap {
-    transform: translateX(-6px);
+.contact-link .text {
+    transition: transform 0.25s ease, color 0.25s ease;
 }
 
-[class^="contact-link-v"]:hover .text {
-    transform: translateX(6px);
-}
-
-/* VARIATION 1: Spread + subtle bg */
-.contact-link-v1:hover {
-    background: var(--bg-secondary);
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-left: -12px;
-}
-
-.contact-link-v1:hover .icon-wrap {
-    color: var(--accent);
-}
-
-.contact-link-v1:hover .text {
-    color: var(--text-primary);
-}
-
-/* VARIATION 2: Spread + underline */
-.contact-link-v2 {
-    position: relative;
-}
-
-.contact-link-v2::after {
-    content: '';
-    position: absolute;
-    bottom: 6px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--accent);
-    transition: width 0.3s ease;
-}
-
-.contact-link-v2:hover::after {
-    width: 100%;
-}
-
-.contact-link-v2:hover .icon-wrap {
-    color: var(--accent);
-}
-
-.contact-link-v2:hover .text {
-    color: var(--text-primary);
-}
-
-/* VARIATION 3: Spread + glow */
-.contact-link-v3:hover {
-    color: var(--accent);
-    text-shadow: 0 0 20px var(--accent);
-}
-
-.contact-link-v3:hover .icon-wrap {
-    filter: drop-shadow(0 0 8px var(--accent));
-}
-
-/* VARIATION 4: Spread + arrow */
-.contact-link-v4 .arrow {
+.contact-link .text::before,
+.contact-link .text::after {
     opacity: 0;
-    transform: translateX(-10px);
-    transition: all 0.25s ease;
-    color: var(--accent);
-    margin-left: auto;
-}
-
-.contact-link-v4:hover .arrow {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.contact-link-v4:hover .icon-wrap {
+    transition: opacity 0.25s ease, transform 0.25s ease, margin 0.25s ease;
     color: var(--accent);
 }
 
-.contact-link-v4:hover .text {
-    color: var(--text-primary);
-}
-
-/* VARIATION 5: Spread + accent bar grows */
-.contact-link-v5 {
-    position: relative;
-    padding-left: 16px;
-}
-
-.contact-link-v5::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 3px;
-    height: 0;
-    background: var(--accent);
-    transition: height 0.25s ease;
-}
-
-.contact-link-v5:hover::before {
-    height: 100%;
-}
-
-.contact-link-v5:hover .icon-wrap {
-    color: var(--accent);
-}
-
-.contact-link-v5:hover .text {
-    color: var(--text-primary);
-}
-
-/* VARIATION 6: Spread + icon scales */
-.contact-link-v6:hover .icon-wrap {
-    transform: translateX(-6px) scale(1.2);
-    color: var(--accent);
-}
-
-.contact-link-v6:hover .text {
-    color: var(--text-primary);
-}
-
-/* VARIATION 7: Spread + color shift (icon and text both go accent) */
-.contact-link-v7:hover {
-    color: var(--accent);
-}
-
-.contact-link-v7:hover .icon-wrap {
-    color: var(--accent);
-}
-
-.contact-link-v7:hover .text {
-    color: var(--accent);
-}
-
-/* VARIATION 8: Spread + bottom border slide */
-.contact-link-v8 {
-    position: relative;
-    overflow: hidden;
-}
-
-.contact-link-v8::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--accent);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-}
-
-.contact-link-v8:hover::after {
-    transform: translateX(0);
-}
-
-.contact-link-v8:hover .icon-wrap {
-    color: var(--accent);
-}
-
-.contact-link-v8:hover .text {
-    color: var(--text-primary);
-}
-
-/* VARIATION 9: Spread + lift */
-.contact-link-v9:hover {
-    transform: translateY(-2px);
-}
-
-.contact-link-v9:hover .icon-wrap {
-    transform: translateX(-6px);
-    color: var(--accent);
-}
-
-.contact-link-v9:hover .text {
-    transform: translateX(6px);
-    color: var(--text-primary);
-}
-
-/* VARIATION 10: Spread + brackets reveal */
-.contact-link-v10 .text::before,
-.contact-link-v10 .text::after {
-    opacity: 0;
-    transition: opacity 0.25s ease, transform 0.25s ease;
-    color: var(--accent);
-}
-
-.contact-link-v10 .text::before {
+.contact-link .text::before {
     content: '[';
     transform: translateX(4px);
     margin-right: 0;
 }
 
-.contact-link-v10 .text::after {
+.contact-link .text::after {
     content: ']';
     transform: translateX(-4px);
     margin-left: 0;
 }
 
-.contact-link-v10:hover .text::before,
-.contact-link-v10:hover .text::after {
+/* Hover: spread + color shift + brackets */
+.contact-link:hover .icon-wrap {
+    transform: translateX(-6px);
+    color: var(--accent);
+}
+
+.contact-link:hover .text {
+    transform: translateX(6px);
+    color: var(--accent);
+}
+
+.contact-link:hover .text::before,
+.contact-link:hover .text::after {
     opacity: 1;
     transform: translateX(0);
 }
 
-.contact-link-v10:hover .text::before {
+.contact-link:hover .text::before {
     margin-right: 4px;
 }
 
-.contact-link-v10:hover .text::after {
+.contact-link:hover .text::after {
     margin-left: 4px;
-}
-
-.contact-link-v10:hover .icon-wrap {
-    color: var(--accent);
-}
-
-.contact-link-v10:hover .text {
-    color: var(--text-primary);
 }
 
 /* ==================== FOOTER ==================== */
