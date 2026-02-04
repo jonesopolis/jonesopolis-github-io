@@ -1,7 +1,5 @@
 'use client';
 
-import './BitIterate.css';
-
 // Sad robot variations - eye squint only, no fountains
 const sadVariations = [
   {
