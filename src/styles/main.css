@@ -1611,18 +1611,33 @@ footer p {
 
     /* Bit + badge container centered as one unit */
     .hero-bit-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: inline-flex;
         position: relative;
+        padding-top: 30px;
+        padding-right: 70px;
     }
 
     .hero-bit-container .hero-badge {
         position: absolute;
-        top: -10px;
-        right: -50px;
+        top: 0;
+        right: 0;
         font-size: 10px;
         padding: 5px 10px;
+    }
+
+    /* Thought bubble dots point toward Bit */
+    .hero-bit-container .hero-badge::before {
+        bottom: -10px;
+        left: 8px;
+        width: 8px;
+        height: 8px;
+    }
+
+    .hero-bit-container .hero-badge::after {
+        bottom: -16px;
+        left: 2px;
+        width: 5px;
+        height: 5px;
     }
 
     .hero-decoration {
