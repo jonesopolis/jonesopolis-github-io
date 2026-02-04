@@ -594,24 +594,25 @@ header.header--scrolled {
 }
 
 .post-detail-icon {
-    margin-bottom: 32px;
-    padding: 40px;
-    border: 1px solid var(--border);
+    margin-bottom: 16px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: var(--bg-secondary);
+    justify-content: flex-start;
 }
 
 .post-detail-icon svg {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     color: var(--text-secondary);
     transition: color 0.3s ease;
 }
 
+html.dark-mode .post-detail-icon svg {
+    color: var(--text-primary);
+}
+
 .post-detail-image {
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     overflow: hidden;
 }
 
