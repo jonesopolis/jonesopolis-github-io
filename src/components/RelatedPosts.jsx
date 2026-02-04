@@ -25,14 +25,14 @@ export default function RelatedPosts({ currentSlug, tags }) {
     return (
       <section className="related-posts">
         <h2>Related</h2>
-        <div className="related-posts-grid">
-          <div className="related-post-card skeleton">
-            <div className="skeleton-line skeleton-title"></div>
-            <div className="skeleton-line"></div>
+        <div className="related-posts-timeline">
+          <div className="related-timeline-item skeleton">
+            <div className="skeleton-line" style={{ width: '60px' }}></div>
+            <div className="skeleton-line" style={{ width: '80%' }}></div>
           </div>
-          <div className="related-post-card skeleton">
-            <div className="skeleton-line skeleton-title"></div>
-            <div className="skeleton-line"></div>
+          <div className="related-timeline-item skeleton">
+            <div className="skeleton-line" style={{ width: '60px' }}></div>
+            <div className="skeleton-line" style={{ width: '80%' }}></div>
           </div>
         </div>
       </section>
@@ -46,18 +46,15 @@ export default function RelatedPosts({ currentSlug, tags }) {
   return (
     <section className="related-posts">
       <h2>Related</h2>
-      <div className="related-posts-grid">
-        {posts.map((post) => (
-          <Link key={post.slug} to={`/${post.slug}`} className="related-post-card">
-            <div className="related-post-content">
-              <h3>{post.title}</h3>
-              <span className="post-date">{formatDate(post.publishDate)}</span>
-              <div className="post-tags">
-                {post.tags.slice(0, 2).map((tag) => (
-                  <span key={tag.slug} className="tag">{tag.name}</span>
-                ))}
-              </div>
-            </div>
+      <div className="related-posts-timeline">
+        {posts.map((post, index) => (
+          <Link key={post.slug} to={`/${post.slug}`} className={`related-timeline-item${index === posts.length - 1 ? ' last' : ''}`}>
+            <span className="line"></span>
+            <span className="content">
+              <span className="date">{formatDate(post.publishDate)}</span>
+              <span className="hook">{post.hook || 'what can we learn?'}</span>
+              <span className="title">{post.title}</span>
+            </span>
           </Link>
         ))}
       </div>
