@@ -35,15 +35,17 @@ export default function Contact() {
         title={contact.seoTitle}
         description={contact.introText}
       />
-      <section className="hero">
-        <div className="hero-content">
-          <h1>{contact.pageTitle}<span className="hero-cursor"></span></h1>
-          <p>{contact.introText}</p>
-        </div>
-        <div className="hero-decoration" style={{ opacity: 0.3 }}>
-          <Robot emotion="thinking" size={180} />
-        </div>
-      </section>
+      <div className="container">
+        <section className="hero">
+          <div className="hero-content">
+            <h1>{contact.pageTitle}<span className="hero-cursor"></span></h1>
+            <p>{contact.introText}</p>
+          </div>
+          <div className="hero-decoration" style={{ opacity: 0.3 }}>
+            <Robot emotion="thinking" size={180} />
+          </div>
+        </section>
+      </div>
 
       <div className="container">
         <div className="contact-links">
