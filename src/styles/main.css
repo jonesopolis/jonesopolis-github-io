@@ -228,6 +228,12 @@ header.header--scrolled {
     flex: 1;
 }
 
+/* Container for Bit + thought bubble on desktop - hidden, badge stays in content */
+.hero-bit-container {
+    position: relative;
+    flex-shrink: 0;
+}
+
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -236,10 +242,39 @@ header.header--scrolled {
     color: var(--text-secondary);
     letter-spacing: 1px;
     text-transform: lowercase;
-    margin-bottom: 16px;
     padding: 6px 12px;
     background-color: var(--accent-subtle);
     border-radius: 20px;
+}
+
+/* Desktop: badge above Bit */
+.hero-bit-container .hero-badge {
+    position: absolute;
+    top: -20px;
+    right: -40px;
+}
+
+/* Thought bubble dots - desktop */
+.hero-bit-container .hero-badge::before,
+.hero-bit-container .hero-badge::after {
+    content: '';
+    position: absolute;
+    background-color: var(--accent-subtle);
+    border-radius: 50%;
+}
+
+.hero-bit-container .hero-badge::before {
+    width: 10px;
+    height: 10px;
+    bottom: -12px;
+    left: 12px;
+}
+
+.hero-bit-container .hero-badge::after {
+    width: 6px;
+    height: 6px;
+    bottom: -20px;
+    left: 6px;
 }
 
 .hero-badge-dot {
@@ -1574,47 +1609,25 @@ footer p {
         max-width: 100%;
     }
 
-    .hero {
+    /* Bit + badge container centered as one unit */
+    .hero-bit-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         position: relative;
+    }
+
+    .hero-bit-container .hero-badge {
+        position: absolute;
+        top: -10px;
+        right: -50px;
+        font-size: 10px;
+        padding: 5px 10px;
     }
 
     .hero-decoration {
         width: 120px;
         height: 120px;
-    }
-
-    /* Thought bubble - position relative to the hero container */
-    .hero-badge {
-        position: absolute;
-        top: 30px;
-        right: 16px;
-        margin-bottom: 0;
-        font-size: 10px;
-        padding: 5px 10px;
-        z-index: 1;
-    }
-
-    /* Thought bubble dots */
-    .hero-badge::before,
-    .hero-badge::after {
-        content: '';
-        position: absolute;
-        background-color: var(--accent-subtle);
-        border-radius: 50%;
-    }
-
-    .hero-badge::before {
-        width: 10px;
-        height: 10px;
-        bottom: -12px;
-        left: 10px;
-    }
-
-    .hero-badge::after {
-        width: 6px;
-        height: 6px;
-        bottom: -20px;
-        left: 4px;
     }
 
     .hero h1 {
