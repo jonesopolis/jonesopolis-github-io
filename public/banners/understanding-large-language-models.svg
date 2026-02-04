@@ -1,0 +1,88 @@
+<svg viewBox="0 0 1800 450" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+  <!-- Neural network pattern spreading across banner -->
+  <!-- Layer 1 - Input nodes -->
+  <circle cx="200" cy="100" r="20" />
+  <circle cx="200" cy="225" r="20" />
+  <circle cx="200" cy="350" r="20" />
+
+  <!-- Layer 2 -->
+  <circle cx="450" cy="80" r="18" />
+  <circle cx="450" cy="170" r="18" />
+  <circle cx="450" cy="280" r="18" />
+  <circle cx="450" cy="370" r="18" />
+
+  <!-- Layer 3 - Hidden -->
+  <circle cx="700" cy="100" r="16" />
+  <circle cx="700" cy="190" r="16" />
+  <circle cx="700" cy="260" r="16" />
+  <circle cx="700" cy="350" r="16" />
+
+  <!-- Layer 4 - Deep hidden -->
+  <circle cx="950" cy="130" r="16" />
+  <circle cx="950" cy="225" r="16" />
+  <circle cx="950" cy="320" r="16" />
+
+  <!-- Layer 5 -->
+  <circle cx="1200" cy="100" r="18" />
+  <circle cx="1200" cy="190" r="18" />
+  <circle cx="1200" cy="260" r="18" />
+  <circle cx="1200" cy="350" r="18" />
+
+  <!-- Layer 6 - Output -->
+  <circle cx="1450" cy="150" r="20" />
+  <circle cx="1450" cy="225" r="20" />
+  <circle cx="1450" cy="300" r="20" />
+
+  <!-- Connections Layer 1 to 2 -->
+  <line x1="220" y1="100" x2="432" y2="80" opacity="0.3" />
+  <line x1="220" y1="100" x2="432" y2="170" opacity="0.3" />
+  <line x1="220" y1="225" x2="432" y2="170" opacity="0.3" />
+  <line x1="220" y1="225" x2="432" y2="280" opacity="0.3" />
+  <line x1="220" y1="350" x2="432" y2="280" opacity="0.3" />
+  <line x1="220" y1="350" x2="432" y2="370" opacity="0.3" />
+
+  <!-- Connections Layer 2 to 3 -->
+  <line x1="468" y1="80" x2="684" y2="100" opacity="0.4" />
+  <line x1="468" y1="170" x2="684" y2="190" opacity="0.4" />
+  <line x1="468" y1="280" x2="684" y2="260" opacity="0.4" />
+  <line x1="468" y1="370" x2="684" y2="350" opacity="0.4" />
+  <line x1="468" y1="80" x2="684" y2="190" opacity="0.2" />
+  <line x1="468" y1="170" x2="684" y2="260" opacity="0.2" />
+
+  <!-- Connections Layer 3 to 4 -->
+  <line x1="716" y1="100" x2="934" y2="130" opacity="0.5" />
+  <line x1="716" y1="190" x2="934" y2="225" opacity="0.5" />
+  <line x1="716" y1="260" x2="934" y2="225" opacity="0.5" />
+  <line x1="716" y1="350" x2="934" y2="320" opacity="0.5" />
+  <line x1="716" y1="190" x2="934" y2="130" opacity="0.2" />
+  <line x1="716" y1="260" x2="934" y2="320" opacity="0.2" />
+
+  <!-- Connections Layer 4 to 5 -->
+  <line x1="966" y1="130" x2="1182" y2="100" opacity="0.4" />
+  <line x1="966" y1="225" x2="1182" y2="190" opacity="0.4" />
+  <line x1="966" y1="225" x2="1182" y2="260" opacity="0.4" />
+  <line x1="966" y1="320" x2="1182" y2="350" opacity="0.4" />
+  <line x1="966" y1="130" x2="1182" y2="190" opacity="0.2" />
+
+  <!-- Connections Layer 5 to 6 -->
+  <line x1="1218" y1="100" x2="1430" y2="150" opacity="0.3" />
+  <line x1="1218" y1="190" x2="1430" y2="225" opacity="0.3" />
+  <line x1="1218" y1="260" x2="1430" y2="225" opacity="0.3" />
+  <line x1="1218" y1="350" x2="1430" y2="300" opacity="0.3" />
+
+  <!-- Decorative pulses/signals -->
+  <circle cx="325" cy="140" r="6" fill="currentColor" opacity="0.6" />
+  <circle cx="575" cy="235" r="6" fill="currentColor" opacity="0.6" />
+  <circle cx="825" cy="175" r="6" fill="currentColor" opacity="0.6" />
+  <circle cx="1075" cy="270" r="6" fill="currentColor" opacity="0.6" />
+  <circle cx="1325" cy="200" r="6" fill="currentColor" opacity="0.6" />
+
+  <!-- Brain-like curve accents -->
+  <path d="M1550 120 Q1620 80 1700 120" stroke-width="1.5" opacity="0.4" />
+  <path d="M1550 225 Q1650 200 1750 225" stroke-width="1.5" opacity="0.4" />
+  <path d="M1550 330 Q1620 370 1700 330" stroke-width="1.5" opacity="0.4" />
+
+  <path d="M50 130 Q100 100 150 130" stroke-width="1.5" opacity="0.4" />
+  <path d="M50 225 Q100 250 150 225" stroke-width="1.5" opacity="0.4" />
+  <path d="M50 320 Q100 350 150 320" stroke-width="1.5" opacity="0.4" />
+</svg>

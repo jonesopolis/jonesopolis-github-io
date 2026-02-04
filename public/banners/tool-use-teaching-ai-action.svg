@@ -1,0 +1,94 @@
+<svg viewBox="0 0 1800 450" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+  <!-- AI Brain on left -->
+  <ellipse cx="200" cy="225" rx="100" ry="85" stroke-width="2.5" />
+  <path d="M130 190 Q200 155 270 190" opacity="0.4" />
+  <path d="M140 225 Q200 200 260 225" opacity="0.4" />
+  <path d="M130 260 Q200 295 270 260" opacity="0.4" />
+
+  <!-- Thought bubble -->
+  <circle cx="320" cy="140" r="15" opacity="0.4" />
+  <circle cx="360" cy="110" r="20" opacity="0.4" />
+  <circle cx="420" cy="90" r="25" opacity="0.4" />
+
+  <!-- Tool 1 - Calculator -->
+  <rect x="500" y="50" width="140" height="120" rx="10" />
+  <rect x="520" y="70" width="100" height="30" rx="3" fill="currentColor" opacity="0.1" />
+  <text x="540" y="92" font-family="monospace" font-size="16" fill="currentColor" opacity="0.5">123</text>
+  <rect x="520" y="110" width="22" height="22" rx="2" opacity="0.5" />
+  <rect x="549" y="110" width="22" height="22" rx="2" opacity="0.5" />
+  <rect x="578" y="110" width="22" height="22" rx="2" opacity="0.5" />
+  <rect x="520" y="138" width="22" height="22" rx="2" opacity="0.5" />
+  <rect x="549" y="138" width="22" height="22" rx="2" opacity="0.5" />
+  <rect x="578" y="138" width="22" height="22" rx="2" opacity="0.5" />
+
+  <!-- Tool 2 - Search/Web -->
+  <circle cx="570" cy="280" r="50" />
+  <circle cx="570" cy="280" r="35" />
+  <line x1="570" y1="245" x2="570" y2="260" opacity="0.5" />
+  <line x1="570" y1="300" x2="570" y2="315" opacity="0.5" />
+  <line x1="535" y1="280" x2="550" y2="280" opacity="0.5" />
+  <line x1="590" y1="280" x2="605" y2="280" opacity="0.5" />
+  <circle cx="570" cy="280" r="8" fill="currentColor" opacity="0.4" />
+
+  <!-- Tool 3 - Code/API -->
+  <rect x="750" y="150" width="180" height="150" rx="8" />
+  <line x1="750" y1="175" x2="930" y2="175" />
+  <circle cx="770" cy="163" r="5" fill="currentColor" opacity="0.4" />
+  <circle cx="790" cy="163" r="5" fill="currentColor" opacity="0.4" />
+  <circle cx="810" cy="163" r="5" fill="currentColor" opacity="0.4" />
+  <text x="770" y="205" font-family="monospace" font-size="12" fill="currentColor" opacity="0.4">function()</text>
+  <line x1="770" y1="220" x2="880" y2="220" opacity="0.4" />
+  <line x1="785" y1="240" x2="900" y2="240" opacity="0.4" />
+  <line x1="785" y1="260" x2="860" y2="260" opacity="0.4" />
+  <line x1="770" y1="280" x2="820" y2="280" opacity="0.4" />
+
+  <!-- Tool 4 - Database -->
+  <ellipse cx="840" cy="380" rx="60" ry="25" />
+  <path d="M780 380 L780 420 Q780 445 840 445 Q900 445 900 420 L900 380" />
+  <ellipse cx="840" cy="420" rx="60" ry="25" opacity="0.3" />
+  <line x1="810" y1="395" x2="870" y2="395" opacity="0.4" />
+  <line x1="810" y1="410" x2="870" y2="410" opacity="0.4" />
+
+  <!-- Connection lines from brain to tools -->
+  <path d="M300 200 Q400 150 480 110" stroke-dasharray="6,4" />
+  <polygon points="480,110 462,112 470,126" fill="currentColor" />
+
+  <path d="M300 250 Q400 280 510 280" stroke-dasharray="6,4" />
+  <polygon points="510,280 492,270 492,290" fill="currentColor" />
+
+  <path d="M300 225 Q500 200 730 200" stroke-dasharray="6,4" />
+  <polygon points="730,200 712,190 712,210" fill="currentColor" />
+
+  <path d="M300 280 Q550 350 770 400" stroke-dasharray="6,4" />
+  <polygon points="770,400 752,392 755,408" fill="currentColor" />
+
+  <!-- Results flowing to output -->
+  <rect x="1100" y="100" width="250" height="250" rx="15" stroke-width="2.5" />
+  <text x="1150" y="80" font-family="monospace" font-size="16" fill="currentColor" opacity="0.4">Results</text>
+
+  <!-- Results content -->
+  <line x1="1130" y1="150" x2="1320" y2="150" opacity="0.5" />
+  <line x1="1130" y1="180" x2="1300" y2="180" opacity="0.5" />
+  <line x1="1130" y1="210" x2="1280" y2="210" opacity="0.5" />
+  <rect x="1130" y="240" width="80" height="40" rx="5" fill="currentColor" opacity="0.1" />
+  <line x1="1230" y1="250" x2="1320" y2="250" opacity="0.5" />
+  <line x1="1230" y1="270" x2="1300" y2="270" opacity="0.5" />
+  <line x1="1130" y1="300" x2="1320" y2="300" opacity="0.5" />
+
+  <!-- Arrows from tools to results -->
+  <path d="M640 110 Q900 80 1080 150" stroke-width="1.5" opacity="0.4" />
+  <path d="M630 280 Q850 280 1080 250" stroke-width="1.5" opacity="0.4" />
+  <path d="M930 225 L1080 225" stroke-width="1.5" opacity="0.4" />
+  <path d="M900 400 Q1000 380 1080 320" stroke-width="1.5" opacity="0.4" />
+
+  <!-- Final output arrow -->
+  <path d="M1350 225 L1500 225" stroke-width="2" />
+  <polygon points="1500,225 1480,212 1480,238" fill="currentColor" />
+
+  <!-- Final answer box -->
+  <rect x="1520" y="150" width="200" height="150" rx="10" stroke-width="2.5" />
+  <line x1="1550" y1="190" x2="1690" y2="190" />
+  <line x1="1550" y1="220" x2="1680" y2="220" opacity="0.7" />
+  <line x1="1550" y1="250" x2="1660" y2="250" opacity="0.5" />
+  <path d="M1640 260 L1660 280 L1700 240" stroke-width="2.5" />
+</svg>

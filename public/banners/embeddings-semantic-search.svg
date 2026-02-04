@@ -1,0 +1,77 @@
+<svg viewBox="0 0 1800 450" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+  <!-- 3D coordinate system hint -->
+  <line x1="100" y1="400" x2="100" y2="50" stroke-width="1" opacity="0.2" />
+  <line x1="100" y1="400" x2="400" y2="400" stroke-width="1" opacity="0.2" />
+  <line x1="100" y1="400" x2="50" y2="350" stroke-width="1" opacity="0.2" />
+
+  <!-- Scattered points in vector space - cluster 1 (similar items) -->
+  <circle cx="300" cy="150" r="12" fill="currentColor" opacity="0.7" />
+  <circle cx="350" cy="180" r="12" fill="currentColor" opacity="0.7" />
+  <circle cx="320" cy="220" r="12" fill="currentColor" opacity="0.7" />
+  <circle cx="380" cy="140" r="12" fill="currentColor" opacity="0.7" />
+  <circle cx="400" cy="200" r="12" fill="currentColor" opacity="0.7" />
+
+  <!-- Cluster boundary -->
+  <ellipse cx="350" cy="180" rx="100" ry="80" stroke-dasharray="6,4" opacity="0.3" />
+
+  <!-- Cluster 2 -->
+  <circle cx="600" cy="300" r="10" fill="currentColor" opacity="0.6" />
+  <circle cx="650" cy="330" r="10" fill="currentColor" opacity="0.6" />
+  <circle cx="620" cy="360" r="10" fill="currentColor" opacity="0.6" />
+  <circle cx="680" cy="320" r="10" fill="currentColor" opacity="0.6" />
+
+  <ellipse cx="640" cy="330" rx="80" ry="60" stroke-dasharray="6,4" opacity="0.3" />
+
+  <!-- Cluster 3 -->
+  <circle cx="550" cy="100" r="10" fill="currentColor" opacity="0.5" />
+  <circle cx="590" cy="130" r="10" fill="currentColor" opacity="0.5" />
+  <circle cx="560" cy="160" r="10" fill="currentColor" opacity="0.5" />
+
+  <ellipse cx="565" cy="130" rx="60" ry="50" stroke-dasharray="6,4" opacity="0.3" />
+
+  <!-- Central transformation zone -->
+  <rect x="800" y="100" width="200" height="250" rx="10" opacity="0.2" />
+  <text x="850" y="230" font-family="monospace" font-size="24" fill="currentColor" opacity="0.4">f(x)</text>
+
+  <!-- Word/Text inputs on left side -->
+  <rect x="150" y="320" width="100" height="35" rx="5" opacity="0.5" />
+  <text x="170" y="345" font-family="monospace" font-size="14" fill="currentColor" opacity="0.5">cat</text>
+
+  <rect x="180" y="370" width="120" height="35" rx="5" opacity="0.5" />
+  <text x="195" y="395" font-family="monospace" font-size="14" fill="currentColor" opacity="0.5">kitten</text>
+
+  <!-- Arrows showing embedding transformation -->
+  <path d="M260 337 Q400 300 450 250" stroke-dasharray="4,4" opacity="0.4" />
+  <path d="M310 387 Q450 350 480 320" stroke-dasharray="4,4" opacity="0.4" />
+
+  <!-- Output vector space - more organized clusters -->
+  <circle cx="1200" cy="120" r="14" fill="currentColor" opacity="0.8" />
+  <circle cx="1250" cy="140" r="14" fill="currentColor" opacity="0.8" />
+  <circle cx="1220" cy="170" r="14" fill="currentColor" opacity="0.8" />
+  <circle cx="1280" cy="130" r="14" fill="currentColor" opacity="0.8" />
+
+  <circle cx="1400" cy="280" r="12" fill="currentColor" opacity="0.6" />
+  <circle cx="1450" cy="300" r="12" fill="currentColor" opacity="0.6" />
+  <circle cx="1420" cy="330" r="12" fill="currentColor" opacity="0.6" />
+  <circle cx="1480" cy="290" r="12" fill="currentColor" opacity="0.6" />
+
+  <circle cx="1550" cy="150" r="11" fill="currentColor" opacity="0.5" />
+  <circle cx="1600" cy="180" r="11" fill="currentColor" opacity="0.5" />
+  <circle cx="1570" cy="210" r="11" fill="currentColor" opacity="0.5" />
+
+  <!-- Distance lines showing similarity -->
+  <line x1="1250" y1="140" x2="1220" y2="170" stroke-dasharray="3,3" opacity="0.5" />
+  <line x1="1200" y1="120" x2="1250" y2="140" stroke-dasharray="3,3" opacity="0.5" />
+  <line x1="1400" y1="280" x2="1450" y2="300" stroke-dasharray="3,3" opacity="0.5" />
+
+  <!-- Cosine similarity arc -->
+  <path d="M1320 200 Q1350 230 1380 260" stroke-width="1.5" opacity="0.4" />
+  <text x="1340" y="250" font-family="monospace" font-size="12" fill="currentColor" opacity="0.3">cos(θ)</text>
+
+  <!-- Arrow from transform to output -->
+  <path d="M1000 225 L1100 200" stroke-width="2" />
+  <polygon points="1100,200 1082,198 1088,212" fill="currentColor" />
+
+  <!-- Dimension indicators -->
+  <text x="1650" y="400" font-family="monospace" font-size="16" fill="currentColor" opacity="0.3">[1536]</text>
+</svg>

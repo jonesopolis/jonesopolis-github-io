@@ -1,0 +1,89 @@
+<svg viewBox="0 0 1800 450" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left side: Fine-tuning -->
+  <text x="300" y="50" font-family="monospace" font-size="20" fill="currentColor" opacity="0.6">Fine-Tuning</text>
+
+  <!-- Base model -->
+  <rect x="150" y="80" width="200" height="100" rx="10" />
+  <text x="200" y="135" font-family="monospace" font-size="14" fill="currentColor" opacity="0.5">Base Model</text>
+
+  <!-- Training data stack -->
+  <rect x="420" y="80" width="150" height="30" rx="5" fill="currentColor" opacity="0.1" />
+  <rect x="430" y="90" width="150" height="30" rx="5" fill="currentColor" opacity="0.15" />
+  <rect x="440" y="100" width="150" height="30" rx="5" fill="currentColor" opacity="0.2" />
+  <text x="480" y="122" font-family="monospace" font-size="12" fill="currentColor" opacity="0.5">Dataset</text>
+
+  <!-- Arrow from data to model -->
+  <path d="M440 130 L370 130" stroke-width="2" />
+  <polygon points="370,130 385,120 385,140" fill="currentColor" />
+
+  <!-- Fine-tuning dial/indicator -->
+  <circle cx="250" cy="260" r="60" />
+  <line x1="250" y1="260" x2="250" y2="210" stroke-width="3" />
+  <circle cx="250" cy="260" r="10" fill="currentColor" />
+  <text x="180" y="340" font-family="monospace" font-size="10" fill="currentColor" opacity="0.4">weights</text>
+  <text x="280" y="340" font-family="monospace" font-size="10" fill="currentColor" opacity="0.4">updated</text>
+
+  <!-- Gradient descent visualization -->
+  <path d="M420 200 Q450 250 480 240 Q510 230 540 270 Q570 310 600 290" stroke-width="1.5" opacity="0.4" />
+  <circle cx="420" cy="200" r="5" fill="currentColor" opacity="0.3" />
+  <circle cx="480" cy="240" r="5" fill="currentColor" opacity="0.4" />
+  <circle cx="540" cy="270" r="5" fill="currentColor" opacity="0.5" />
+  <circle cx="600" cy="290" r="6" fill="currentColor" opacity="0.7" />
+  <text x="480" y="340" font-family="monospace" font-size="10" fill="currentColor" opacity="0.4">optimization</text>
+
+  <!-- Result: specialized model -->
+  <rect x="150" y="370" width="200" height="60" rx="10" stroke-width="2.5" />
+  <text x="170" y="405" font-family="monospace" font-size="12" fill="currentColor" opacity="0.6">Specialized Model</text>
+
+  <!-- Divider -->
+  <line x1="900" y1="30" x2="900" y2="420" stroke-dasharray="10,5" opacity="0.3" />
+  <text x="880" y="240" font-family="monospace" font-size="16" fill="currentColor" opacity="0.3">vs</text>
+
+  <!-- Right side: Few-shot -->
+  <text x="1200" y="50" font-family="monospace" font-size="20" fill="currentColor" opacity="0.6">Few-Shot Learning</text>
+
+  <!-- Same base model -->
+  <rect x="1050" y="80" width="200" height="100" rx="10" />
+  <text x="1100" y="135" font-family="monospace" font-size="14" fill="currentColor" opacity="0.5">Same Model</text>
+  <text x="1080" y="155" font-family="monospace" font-size="10" fill="currentColor" opacity="0.3">(no weight changes)</text>
+
+  <!-- Prompt with examples -->
+  <rect x="1320" y="70" width="300" height="200" rx="8" />
+  <line x1="1320" y1="100" x2="1620" y2="100" opacity="0.3" />
+  <text x="1340" y="90" font-family="monospace" font-size="12" fill="currentColor" opacity="0.4">Prompt</text>
+
+  <!-- Example 1 -->
+  <text x="1340" y="125" font-family="monospace" font-size="11" fill="currentColor" opacity="0.5">Example 1:</text>
+  <line x1="1340" y1="135" x2="1580" y2="135" opacity="0.3" />
+  <text x="1340" y="155" font-family="monospace" font-size="10" fill="currentColor" opacity="0.3">Input → Output</text>
+
+  <!-- Example 2 -->
+  <text x="1340" y="180" font-family="monospace" font-size="11" fill="currentColor" opacity="0.5">Example 2:</text>
+  <line x1="1340" y1="190" x2="1580" y2="190" opacity="0.3" />
+  <text x="1340" y="210" font-family="monospace" font-size="10" fill="currentColor" opacity="0.3">Input → Output</text>
+
+  <!-- New query -->
+  <text x="1340" y="240" font-family="monospace" font-size="11" fill="currentColor" opacity="0.6">Now do this:</text>
+  <line x1="1340" y1="250" x2="1500" y2="250" opacity="0.4" />
+
+  <!-- Arrow from prompt to model -->
+  <path d="M1320 170 L1270 150" stroke-width="2" />
+  <polygon points="1270,150 1290,148 1283,163" fill="currentColor" />
+
+  <!-- In-context learning visualization -->
+  <rect x="1100" y="220" width="150" height="80" rx="5" stroke-dasharray="4,4" opacity="0.4" />
+  <text x="1115" y="250" font-family="monospace" font-size="10" fill="currentColor" opacity="0.4">In-context</text>
+  <text x="1115" y="270" font-family="monospace" font-size="10" fill="currentColor" opacity="0.4">learning</text>
+  <circle cx="1175" cy="280" r="3" fill="currentColor" opacity="0.3" />
+  <circle cx="1190" cy="280" r="3" fill="currentColor" opacity="0.4" />
+  <circle cx="1205" cy="280" r="3" fill="currentColor" opacity="0.5" />
+
+  <!-- Result: same model, new behavior -->
+  <rect x="1050" y="370" width="200" height="60" rx="10" stroke-width="2.5" />
+  <text x="1090" y="395" font-family="monospace" font-size="12" fill="currentColor" opacity="0.6">Adapted Output</text>
+  <text x="1065" y="415" font-family="monospace" font-size="9" fill="currentColor" opacity="0.3">(model unchanged)</text>
+
+  <!-- Comparison indicators -->
+  <text x="200" y="440" font-family="monospace" font-size="11" fill="currentColor" opacity="0.3">Permanent • Expensive • Custom</text>
+  <text x="1070" y="440" font-family="monospace" font-size="11" fill="currentColor" opacity="0.3">Temporary • Fast • Flexible</text>
+</svg>

@@ -1,0 +1,130 @@
+<svg viewBox="0 0 1800 450" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+  <!-- Window frame -->
+  <rect x="100" y="50" width="1600" height="350" rx="15" stroke-width="3" />
+
+  <!-- Title bar -->
+  <line x1="100" y1="100" x2="1700" y2="100" stroke-width="2" />
+  <circle cx="140" cy="75" r="12" fill="currentColor" opacity="0.3" />
+  <circle cx="180" cy="75" r="12" fill="currentColor" opacity="0.3" />
+  <circle cx="220" cy="75" r="12" fill="currentColor" opacity="0.3" />
+  <text x="800" y="82" font-family="monospace" font-size="16" fill="currentColor" opacity="0.5">Context Window</text>
+
+  <!-- Scrolling content area with tokens -->
+  <!-- Row 1 - visible/active -->
+  <rect x="130" y="120" width="60" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="200" y="120" width="80" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="290" y="120" width="50" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="350" y="120" width="90" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="450" y="120" width="70" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="530" y="120" width="55" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="595" y="120" width="85" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="690" y="120" width="60" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="760" y="120" width="75" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="845" y="120" width="65" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="920" y="120" width="80" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="1010" y="120" width="55" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="1075" y="120" width="90" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="1175" y="120" width="70" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="1255" y="120" width="60" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="1325" y="120" width="85" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="1420" y="120" width="75" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="1505" y="120" width="65" height="30" rx="3" fill="currentColor" opacity="0.15" />
+  <rect x="1580" y="120" width="90" height="30" rx="3" fill="currentColor" opacity="0.15" />
+
+  <!-- Row 2 -->
+  <rect x="130" y="160" width="75" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="215" y="160" width="55" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="280" y="160" width="90" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="380" y="160" width="65" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="455" y="160" width="80" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="545" y="160" width="60" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="615" y="160" width="70" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="695" y="160" width="85" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="790" y="160" width="55" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="855" y="160" width="75" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="940" y="160" width="90" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="1040" y="160" width="60" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="1110" y="160" width="80" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="1200" y="160" width="65" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="1275" y="160" width="75" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="1360" y="160" width="55" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="1425" y="160" width="85" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="1520" y="160" width="70" height="30" rx="3" fill="currentColor" opacity="0.12" />
+  <rect x="1600" y="160" width="60" height="30" rx="3" fill="currentColor" opacity="0.12" />
+
+  <!-- Row 3 -->
+  <rect x="130" y="200" width="85" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="225" y="200" width="60" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="295" y="200" width="70" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="375" y="200" width="90" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="475" y="200" width="55" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="540" y="200" width="75" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="625" y="200" width="65" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="700" y="200" width="80" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="790" y="200" width="60" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="860" y="200" width="85" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="955" y="200" width="70" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="1035" y="200" width="55" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="1100" y="200" width="90" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="1200" y="200" width="75" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="1285" y="200" width="60" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="1355" y="200" width="80" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="1445" y="200" width="65" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="1520" y="200" width="75" height="30" rx="3" fill="currentColor" opacity="0.09" />
+  <rect x="1605" y="200" width="55" height="30" rx="3" fill="currentColor" opacity="0.09" />
+
+  <!-- Row 4 - fading -->
+  <rect x="130" y="240" width="70" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="210" y="240" width="85" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="305" y="240" width="55" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="370" y="240" width="75" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="455" y="240" width="65" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="530" y="240" width="90" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="630" y="240" width="60" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="700" y="240" width="80" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="790" y="240" width="70" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="870" y="240" width="55" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="935" y="240" width="85" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="1030" y="240" width="75" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="1115" y="240" width="60" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="1185" y="240" width="90" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="1285" y="240" width="65" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="1360" y="240" width="80" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="1450" y="240" width="55" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="1515" y="240" width="75" height="30" rx="3" fill="currentColor" opacity="0.06" />
+  <rect x="1600" y="240" width="60" height="30" rx="3" fill="currentColor" opacity="0.06" />
+
+  <!-- Row 5 - very faded -->
+  <rect x="130" y="280" width="80" height="30" rx="3" fill="currentColor" opacity="0.03" />
+  <rect x="220" y="280" width="60" height="30" rx="3" fill="currentColor" opacity="0.03" />
+  <rect x="290" y="280" width="75" height="30" rx="3" fill="currentColor" opacity="0.03" />
+  <rect x="375" y="280" width="90" height="30" rx="3" fill="currentColor" opacity="0.03" />
+  <rect x="475" y="280" width="55" height="30" rx="3" fill="currentColor" opacity="0.03" />
+  <rect x="540" y="280" width="70" height="30" rx="3" fill="currentColor" opacity="0.03" />
+  <rect x="620" y="280" width="85" height="30" rx="3" fill="currentColor" opacity="0.03" />
+  <rect x="715" y="280" width="65" height="30" rx="3" fill="currentColor" opacity="0.03" />
+
+  <!-- Attention focus indicator -->
+  <rect x="1300" y="280" width="100" height="35" rx="5" stroke-width="2.5" stroke-dasharray="6,3" />
+  <text x="1310" y="305" font-family="monospace" font-size="14" fill="currentColor" opacity="0.6">focus</text>
+
+  <!-- Attention lines from focus to earlier tokens -->
+  <path d="M1300 297 Q900 350 500 165" stroke-width="1" opacity="0.3" />
+  <path d="M1300 297 Q1000 320 750 205" stroke-width="1.5" opacity="0.4" />
+  <path d="M1300 297 Q1100 310 950 165" stroke-width="1" opacity="0.35" />
+  <path d="M1300 297 Q1200 300 1100 245" stroke-width="1" opacity="0.25" />
+
+  <!-- Size indicator -->
+  <text x="150" y="370" font-family="monospace" font-size="14" fill="currentColor" opacity="0.4">4K</text>
+  <text x="500" y="370" font-family="monospace" font-size="14" fill="currentColor" opacity="0.4">32K</text>
+  <text x="900" y="370" font-family="monospace" font-size="14" fill="currentColor" opacity="0.4">128K</text>
+  <text x="1400" y="370" font-family="monospace" font-size="14" fill="currentColor" opacity="0.4">1M+</text>
+
+  <!-- Scale bar -->
+  <line x1="150" y1="380" x2="1650" y2="380" stroke-width="2" opacity="0.3" />
+  <line x1="150" y1="375" x2="150" y2="385" stroke-width="2" opacity="0.3" />
+  <line x1="500" y1="375" x2="500" y2="385" stroke-width="2" opacity="0.3" />
+  <line x1="900" y1="375" x2="900" y2="385" stroke-width="2" opacity="0.3" />
+  <line x1="1400" y1="375" x2="1400" y2="385" stroke-width="2" opacity="0.3" />
+  <line x1="1650" y1="375" x2="1650" y2="385" stroke-width="2" opacity="0.3" />
+</svg>

@@ -1,0 +1,54 @@
+<svg viewBox="0 0 1800 450" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+  <!-- Central robot/agent -->
+  <rect x="800" y="100" width="200" height="160" rx="20" stroke-width="3" />
+  <circle cx="860" cy="160" r="20" />
+  <circle cx="940" cy="160" r="20" />
+  <line x1="860" y1="210" x2="940" y2="210" stroke-width="3" />
+  <circle cx="900" cy="50" r="25" />
+  <line x1="900" y1="75" x2="900" y2="100" stroke-width="3" />
+
+  <!-- Robot body/legs -->
+  <path d="M830 260 L830 320 L800 360" stroke-width="3" />
+  <path d="M970 260 L970 320 L1000 360" stroke-width="3" />
+  <line x1="900" y1="260" x2="900" y2="380" stroke-width="3" />
+
+  <!-- Left side - Input/Perception loop -->
+  <rect x="150" y="150" width="180" height="100" rx="10" />
+  <line x1="170" y1="180" x2="310" y2="180" opacity="0.6" />
+  <line x1="170" y1="200" x2="280" y2="200" opacity="0.6" />
+  <line x1="170" y1="220" x2="250" y2="220" opacity="0.6" />
+
+  <!-- Arrow from input to robot -->
+  <path d="M330 200 L450 200 Q500 200 500 180 L500 150 Q500 130 520 130 L780 130" stroke-width="2" />
+  <polygon points="780,130 765,120 765,140" fill="currentColor" />
+
+  <!-- Right side - Action/Output -->
+  <rect x="1470" y="150" width="180" height="100" rx="10" />
+  <path d="M1490 180 L1510 195 L1540 170" stroke-width="2" />
+  <line x1="1490" y1="210" x2="1630" y2="210" opacity="0.6" />
+  <line x1="1490" y1="230" x2="1580" y2="230" opacity="0.6" />
+
+  <!-- Arrow from robot to output -->
+  <path d="M1000 180 L1100 180 Q1150 180 1150 200 L1150 200 Q1150 220 1200 220 L1450 200" stroke-width="2" />
+  <polygon points="1450,200 1435,190 1435,210" fill="currentColor" />
+
+  <!-- Feedback loop at bottom -->
+  <path d="M1470 250 L1470 380 Q1470 400 1450 400 L350 400 Q330 400 330 380 L330 250" stroke-width="2" stroke-dasharray="8,4" opacity="0.5" />
+  <polygon points="330,250 320,270 340,270" fill="currentColor" opacity="0.5" />
+
+  <!-- Thinking/processing indicators around robot -->
+  <circle cx="720" cy="120" r="8" fill="currentColor" opacity="0.4" />
+  <circle cx="700" cy="180" r="6" fill="currentColor" opacity="0.3" />
+  <circle cx="710" cy="240" r="7" fill="currentColor" opacity="0.4" />
+
+  <circle cx="1080" cy="120" r="8" fill="currentColor" opacity="0.4" />
+  <circle cx="1100" cy="180" r="6" fill="currentColor" opacity="0.3" />
+  <circle cx="1090" cy="240" r="7" fill="currentColor" opacity="0.4" />
+
+  <!-- Decorative gears -->
+  <circle cx="600" cy="350" r="35" stroke-dasharray="10,5" opacity="0.3" />
+  <circle cx="600" cy="350" r="20" opacity="0.3" />
+
+  <circle cx="1200" cy="350" r="35" stroke-dasharray="10,5" opacity="0.3" />
+  <circle cx="1200" cy="350" r="20" opacity="0.3" />
+</svg>
