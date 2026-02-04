@@ -920,31 +920,22 @@ html.theme-transitioning .post-detail-header * {
 }
 
 /* Contact Styles */
-.contact-hero .hero-content {
-    max-width: 600px;
-}
-
-.contact-hero .contact-links {
-    margin-top: 32px;
-}
-
 .contact-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+    display: grid;
+    gap: 16px;
+    margin-top: 24px;
 }
 
 .contact-link {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
+    gap: 12px;
+    padding: 16px;
     border: 1px solid var(--border);
     text-decoration: none;
     color: var(--text-primary);
     transition: all 0.2s ease;
     background-color: var(--bg-secondary);
-    font-size: 13px;
 }
 
 .contact-link:hover {
