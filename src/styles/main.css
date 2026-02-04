@@ -1603,6 +1603,7 @@ footer p {
         text-align: center;
         padding: 40px 0 30px;
         gap: 24px;
+        align-items: center;
     }
 
     .hero p {
@@ -1611,18 +1612,17 @@ footer p {
 
     /* Bit + badge container centered as one unit */
     .hero-bit-container {
-        display: inline-flex;
         position: relative;
-        padding-top: 30px;
-        padding-right: 70px;
+        display: inline-block;
     }
 
     .hero-bit-container .hero-badge {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: -15px;
+        left: calc(100% - 20px);
         font-size: 10px;
         padding: 5px 10px;
+        white-space: nowrap;
     }
 
     /* Thought bubble dots point toward Bit */
