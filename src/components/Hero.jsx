@@ -38,7 +38,7 @@ export default function Hero() {
         <h1>{hero.title}<span className="hero-cursor"></span></h1>
         <p>{hero.subtitle}</p>
       </div>
-      <Link to="/bit" className="hero-decoration" style={{ opacity: 0.3 }}>
+      <Link to="/bit" className="hero-decoration" style={{ opacity: 0.3, color: 'inherit' }}>
         <Robot emotion="waving" size={140} />
       </Link>
     </section>
