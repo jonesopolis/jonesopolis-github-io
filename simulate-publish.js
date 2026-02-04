@@ -93,15 +93,9 @@ console.log('📊 Post Details:');
 console.log(`   Title: ${postData.title}`);
 console.log(`   Slug: ${postData.slug}`);
 console.log(`   Publish Date: ${postData.publishDate}`);
-console.log(`   Excerpt Length: ${postData.excerpt?.length || 0} characters`);
+console.log(`   Hook Length: ${postData.hook?.length || 0} characters`);
 console.log(`   Content Nodes: ${postData.content?.content?.length || 0}`);
 console.log(`   Tags: ${postData.tags?.length || 0}`);
-if (postData.metaTitle) {
-  console.log(`   SEO Title: ${postData.metaTitle}`);
-}
-if (postData.metaDescription) {
-  console.log(`   SEO Description: ${postData.metaDescription}`);
-}
 console.log('');
 
 console.log('🔗 Linking tags to post...');
@@ -163,8 +157,8 @@ console.log('');
 console.log(`Title: ${postData.title}`);
 console.log(`Slug: ${postData.slug}`);
 console.log('');
-console.log(`Excerpt:`);
-console.log(`"${postData.excerpt}"`);
+console.log(`Hook:`);
+console.log(`"${postData.hook}"`);
 console.log('');
 
 if (postData.content?.content) {

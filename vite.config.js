@@ -70,12 +70,12 @@ function contentfulProxyPlugin(env) {
             data = entries.items.map(item => ({
               slug: item.fields.slug,
               title: item.fields.title,
-              excerpt: item.fields.excerpt,
+              hook: item.fields.hook,
               content: item.fields.content,
               publishDate: item.fields.publishDate,
               tags: extractTags(item.fields.tags, entries.includes),
-              mainImage: getImageUrl(item.fields.mainImage, entries.includes),
-              thumbnailImage: getImageUrl(item.fields.thumbnailImage, entries.includes),
+              image: getImageUrl(item.fields.image, entries.includes),
+              imageSvg: getImageUrl(item.fields.imageSvg, entries.includes),
             }));
           } else if (type === 'postBySlug') {
             const slug = url.searchParams.get('slug');
@@ -85,14 +85,12 @@ function contentfulProxyPlugin(env) {
               data = {
                 slug: item.slug,
                 title: item.title,
-                excerpt: item.excerpt,
+                hook: item.hook,
                 content: item.content,
                 publishDate: item.publishDate,
                 tags: extractTags(item.tags, entries.includes),
-                mainImage: getImageUrl(item.mainImage, entries.includes),
-                thumbnailImage: getImageUrl(item.thumbnailImage, entries.includes),
-                metaTitle: item.metaTitle,
-                metaDescription: item.metaDescription,
+                image: getImageUrl(item.image, entries.includes),
+                imageSvg: getImageUrl(item.imageSvg, entries.includes),
               };
             }
           } else if (type === 'footer') {
@@ -170,11 +168,11 @@ function contentfulProxyPlugin(env) {
                 return {
                   slug: item.fields.slug,
                   title: item.fields.title,
-                  excerpt: item.fields.excerpt,
+                  hook: item.fields.hook,
                   publishDate: item.fields.publishDate,
                   tags: postTags,
-                  mainImage: getImageUrl(item.fields.mainImage, entries.includes),
-                  thumbnailImage: getImageUrl(item.fields.thumbnailImage, entries.includes),
+                  image: getImageUrl(item.fields.image, entries.includes),
+                  imageSvg: getImageUrl(item.fields.imageSvg, entries.includes),
                   commonTagCount: commonTags.length,
                 };
               })

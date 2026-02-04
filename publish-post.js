@@ -145,8 +145,8 @@ async function createBlogPost(environment, postData) {
       slug: {
         'en-US': postData.slug,
       },
-      excerpt: {
-        'en-US': postData.excerpt || '',
+      hook: {
+        'en-US': postData.hook || '',
       },
       content: {
         'en-US': contentField,
@@ -160,19 +160,6 @@ async function createBlogPost(environment, postData) {
     if (tagReferences.length > 0) {
       fields.tags = {
         'en-US': tagReferences,
-      };
-    }
-
-    // Add meta fields if provided
-    if (postData.metaTitle) {
-      fields.metaTitle = {
-        'en-US': postData.metaTitle,
-      };
-    }
-
-    if (postData.metaDescription) {
-      fields.metaDescription = {
-        'en-US': postData.metaDescription,
       };
     }
 
