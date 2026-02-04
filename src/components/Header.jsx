@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getSiteSettings } from '../contentful';
-import Robot from './Robot';
 
 function SunIcon() {
   return (
@@ -112,10 +111,6 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <Link to="/bit" className="header-bit" aria-label="Meet Bit">
-            <Robot emotion="waving" size={38} />
-          </Link>
-
           <button
             className="toggle-btn"
             onClick={() => setIsDark(!isDark)}
