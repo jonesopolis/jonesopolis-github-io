@@ -88,31 +88,75 @@ Generate all required metadata and banner image for the post.
 
 ---
 
-### Step 5: Upload to Contentful (Draft)
-Upload everything to Contentful as a draft.
+### Step 5: Convert SVG to PNG
+Convert the SVG banner to PNG format for OG/social sharing (meta tags, Twitter cards, etc.).
+
+**Why PNG?**
+- SVG can't be used for Open Graph images (og:image)
+- Social platforms require raster formats (PNG, JPG)
+- The `image` field is used for SEO/social; `imageSvg` is used for on-page display
+
+**Process**:
+
+1. **Save SVG to scratchpad**
+```bash
+# Write SVG content to file
+echo '<svg ...>' > /path/to/scratchpad/[slug].svg
+```
+
+2. **Convert to PNG using rsvg-convert**
+```bash
+# Requires librsvg (brew install librsvg)
+rsvg-convert -w 800 -h 200 -b white [slug].svg -o [slug].png
+```
+
+3. **Upload PNG to temporary hosting** (for Contentful to fetch)
+```bash
+# catbox.moe provides free, simple hosting
+curl -F "reqtype=fileupload" -F "fileToUpload=@[slug].png" https://catbox.moe/user/api.php
+# Returns a URL like: https://files.catbox.moe/abc123.png
+```
+
+-> Save the PNG URL for the next step
+
+---
+
+### Step 6: Upload to Contentful (Unpublished)
+Upload everything to Contentful as unpublished.
 
 **Sequence**:
 
-1. **Upload SVG Asset**
+1. **Upload SVG Asset** (for on-page display)
 ```
 Tool: mcp__contentful__upload_asset
 - spaceId: "0p9g4pxrt6uv"
 - environmentId: "master"
-- title: "[Post Title] - Banner"
-- description: "Banner image for [topic]"
-- file: [SVG content or URL]
+- title: "[Post Title] - Banner SVG"
+- description: "SVG banner for [topic] (theme-aware)"
+- file: { fileName: "[slug].svg", contentType: "image/svg+xml", upload: [SVG URL or content] }
 ```
--> Save the asset ID
+-> Save the SVG asset ID
 
-2. **Publish Asset** (required before linking)
+2. **Upload PNG Asset** (for OG/social sharing)
+```
+Tool: mcp__contentful__upload_asset
+- spaceId: "0p9g4pxrt6uv"
+- environmentId: "master"
+- title: "[Post Title] - Banner PNG"
+- description: "PNG banner for OG/social sharing"
+- file: { fileName: "[slug].png", contentType: "image/png", upload: [PNG URL from catbox] }
+```
+-> Save the PNG asset ID
+
+3. **Publish Both Assets** (required before linking)
 ```
 Tool: mcp__contentful__publish_asset
 - spaceId: "0p9g4pxrt6uv"
 - environmentId: "master"
-- assetId: [asset_id]
+- assetId: ["[svg_asset_id]", "[png_asset_id]"]
 ```
 
-3. **Create Blog Post Entry (Draft - published: false)**
+4. **Create Blog Post Entry (Unpublished - published: false)**
 ```
 Tool: mcp__contentful__create_entry
 - spaceId: "0p9g4pxrt6uv"
@@ -125,12 +169,13 @@ Tool: mcp__contentful__create_entry
   - content: { "en-US": [Rich Text JSON] }
   - publishDate: { "en-US": "[YYYY-MM-DD]" }
   - tags: { "en-US": [linked tag entries] }
-  - imageSvg: { "en-US": { "sys": { "type": "Link", "linkType": "Asset", "id": "[asset_id]" } } }
+  - image: { "en-US": { "sys": { "type": "Link", "linkType": "Asset", "id": "[png_asset_id]" } } }
+  - imageSvg: { "en-US": { "sys": { "type": "Link", "linkType": "Asset", "id": "[svg_asset_id]" } } }
   - published: { "en-US": false }
 ```
 -> Save the entry ID
 
-4. **Publish Entry** (makes it queryable, but `published: false` keeps it as draft)
+5. **Publish Entry** (makes it queryable, but `published: false` keeps it as unpublished)
 ```
 Tool: mcp__contentful__publish_entry
 - spaceId: "0p9g4pxrt6uv"
@@ -174,12 +219,12 @@ Tool: mcp__contentful__publish_entry
 
 ---
 
-### Step 6: Preview Draft
-Review the draft content on the live site.
+### Step 7: Preview Unpublished Post
+Review the unpublished content on the live site.
 
 **Provide user with**:
 ```
-Draft Created!
+Unpublished post created!
 
 Preview your post here:
 https://code.blog-ai.local:5173/drafts/[slug]
@@ -197,7 +242,7 @@ Let me know what changes you'd like, or say "publish" when ready!
 
 ---
 
-### Step 7: Publish
+### Step 8: Publish
 Once user approves, flip the published flag.
 
 **Sequence**:
@@ -250,7 +295,7 @@ The post is now visible on the main site.
 | tags | Array[Link] | Linked tag entries |
 | image | Link[Asset] | Raster image (OG/social) |
 | imageSvg | Link[Asset] | SVG banner (theme-aware) |
-| published | Boolean | false = draft, true = live |
+| published | Boolean | false = unpublished, true = live |
 
 ### Asset Linking Format
 ```json
@@ -286,9 +331,13 @@ Always use `#000000` - never `currentColor` or other colors. The CSS mask-image 
 - [ ] Content edited (coherent but authentic)
 - [ ] SVG created (800x200, circles/lines, #000000)
 - [ ] Metadata complete (title, slug, hook, tags, date)
-- [ ] Asset uploaded and published
+- [ ] SVG converted to PNG (800x200, white background)
+- [ ] PNG uploaded to temporary hosting (catbox.moe)
+- [ ] SVG asset uploaded and published
+- [ ] PNG asset uploaded and published
+- [ ] Entry created with both `image` (PNG) and `imageSvg` (SVG) linked
 - [ ] Entry created with `published: false`
-- [ ] User previewed at /drafts/[slug]
+- [ ] User previewed at /drafts/[slug] (unpublished posts page)
 - [ ] User approved
 - [ ] Entry updated to `published: true`
 - [ ] Entry re-published

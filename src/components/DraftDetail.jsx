@@ -41,8 +41,8 @@ export default function DraftDetail() {
   const [post, setPost] = useState(null);
   const [settings, setSettings] = useState({
     backToPostsText: 'Back',
-    notFoundTitle: 'Draft not found',
-    notFoundMessage: "The draft you're looking for doesn't exist.",
+    notFoundTitle: 'Post not found',
+    notFoundMessage: "The post you're looking for doesn't exist.",
   });
   const [loading, setLoading] = useState(true);
   const [showStickyTitle, setShowStickyTitle] = useState(false);
@@ -89,8 +89,8 @@ export default function DraftDetail() {
     return (
       <ErrorPage
         code="404"
-        title="Draft Not Found"
-        message="The draft you're looking for doesn't exist or has been moved."
+        title="Post Not Found"
+        message="The post you're looking for doesn't exist or has been moved."
       />
     );
   }
@@ -98,7 +98,7 @@ export default function DraftDetail() {
   return (
     <>
       <SEO
-        title={`[DRAFT] ${post.title} | Please Recompile`}
+        title={`[Unpublished] ${post.title} | Please Recompile`}
         description={post.hook}
         image={post.image}
         type="article"
@@ -107,13 +107,13 @@ export default function DraftDetail() {
       {/* Sticky compact title bar */}
       <div className={`sticky-title-bar ${showStickyTitle ? 'sticky-title-bar--visible' : ''}`}>
         <div className="sticky-title-content">
-          <Link to="/drafts" className="sticky-back-btn" aria-label="Back to drafts">
+          <Link to="/drafts" className="sticky-back-btn" aria-label="Back to unpublished">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="19" y1="12" x2="5" y2="12"/>
               <polyline points="12 19 5 12 12 5"/>
             </svg>
           </Link>
-          <span className="sticky-draft-badge">draft</span>
+          <span className="sticky-draft-badge">unpublished</span>
           <div className="sticky-title-info">
             <span className="sticky-title-text">{post.title}</span>
             <div className="sticky-title-meta">
@@ -135,7 +135,7 @@ export default function DraftDetail() {
               <line x1="19" y1="12" x2="5" y2="12"/>
               <polyline points="12 19 5 12 12 5"/>
             </svg>
-            Drafts
+            Unpublished
           </Link>
 
           {post.imageSvg ? (
@@ -154,7 +154,7 @@ export default function DraftDetail() {
           )}
 
           <header className="post-detail-header">
-            <span className="draft-indicator">draft</span>
+            <span className="draft-indicator">unpublished</span>
             {post.hook && <p className="draft-hook">{post.hook}</p>}
             <h1 ref={titleRef}>{post.title}</h1>
             <div className="post-meta-row">

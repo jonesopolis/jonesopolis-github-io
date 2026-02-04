@@ -16,7 +16,7 @@ function getMonthYear(dateString) {
 
 export default function DraftList() {
   const [posts, setPosts] = useState([]);
-  const [settings, setSettings] = useState({ loadingText: 'Loading drafts...' });
+  const [settings, setSettings] = useState({ loadingText: 'Loading unpublished posts...' });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -32,8 +32,8 @@ export default function DraftList() {
     return (
       <>
         <SEO
-          title="Drafts | Please Recompile"
-          description="Unpublished draft posts"
+          title="Unpublished | Please Recompile"
+          description="Unpublished posts"
         />
         <div className="container">
           <section className="posts">
@@ -50,17 +50,16 @@ export default function DraftList() {
   return (
     <>
       <SEO
-        title="Drafts | Please Recompile"
-        description="Unpublished draft posts"
+        title="Unpublished | Please Recompile"
+        description="Unpublished posts"
       />
       <div className="container">
         <div className="drafts-header">
-          <h1>drafts</h1>
-          <span className="draft-badge">unpublished</span>
+          <h1>unpublished</h1>
         </div>
         {posts.length === 0 ? (
           <section className="posts">
-            <p className="no-drafts">no drafts yet</p>
+            <p className="no-drafts">no unpublished posts yet</p>
           </section>
         ) : (
           <section className="posts timeline-3">
