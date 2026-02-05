@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-html, body {
-    overscroll-behavior: none;
-}
-
 :root {
     --bg-primary: #ffffff;
     --bg-secondary: #f8f8f8;
